@@ -315,6 +315,7 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
     <a class="logo" href="#"><img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/Happi_Planet_-_Brand_Color_1_eer_180x_69c215c4-391d-48e8-948d-7a43bbfda874.avif" alt="Happi Planet"></a>
     <nav>
       <a href="#bundles">Bundles</a>
+      <a href="#bestsellers">Best Sellers</a>
       <a href="#reviews">Reviews</a>
       <a href="#faq">FAQs</a>
     </nav>
@@ -443,6 +444,24 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
       </div>
       <a class="btn-primary" href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/">Make My Own Box <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
     </div>
+  </div>
+</section>
+
+<!-- BEST SELLERS -->
+<section class="sec" id="bestsellers" style="background:var(--bg-green)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Fan favourites</div>
+      <h2>Best sellers, loved by 50,000+ homes</h2>
+    </div>
+    <div class="chips">
+      <button class="chip active" data-f="all">All</button>
+      <button class="chip" data-f="Kitchen">Kitchen</button>
+      <button class="chip" data-f="Laundry">Laundry</button>
+      <button class="chip" data-f="Home">Home</button>
+      <button class="chip" data-f="Skin">Skin</button>
+    </div>
+    <div class="grid" id="bsGrid"></div>
   </div>
 </section>
 
@@ -639,6 +658,85 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
 </div>
 
 <script>
+const BASE='https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/';
+const PRODUCTS=[
+  {id:'kitchen', name:'Foaming Kitchen Cleaner', img:'KitchenCleanerWebsiteImages-01.webp', price:200, mrp:299, rev:573, rating:4.9, cat:'Kitchen', badge:'BEST SELLER'},
+  {id:'detergent', name:'Natural Laundry Detergent', img:'1lt_Website_Images_Laundry_Detergent-01.webp', price:249, mrp:299, rev:215, rating:4.8, cat:'Laundry', badge:'BEST SELLER'},
+  {id:'floor', name:'Herbal Floor Cleaner', img:'1lt_Website_Images_Floor_Cleaner-01.webp', price:249, mrp:299, rev:156, rating:4.8, cat:'Home', badge:'BEST SELLER'},
+  {id:'dishwash', name:'Dishwash Liquid Gel', img:'WebsiteImages-01.webp', price:149, mrp:299, rev:88, rating:4.7, cat:'Kitchen', badge:'DEAL'},
+  {id:'copper', name:'Copper, Bronze & Brass Cleaner', img:'Website_Images_Metal_Cleaner-01.webp', price:200, mrp:299, rev:272, rating:4.9, cat:'Home'},
+  {id:'limescale', name:'Tap Cleaner & Limescale Remover', img:'WebsiteImagesLimeScale-01_7dde5639-eabb-439c-a335-dd2493db5827.webp', price:200, mrp:299, rev:8, rating:4.6, cat:'Kitchen'},
+  {id:'toilet', name:'Non-Toxic Toilet Cleaner', img:'1lt_Website_Images_Toilet_Cleaner-01.webp', price:229, mrp:299, rev:14, rating:4.7, cat:'Home'},
+  {id:'fabric', name:'Natural Fabric Conditioner', img:'FabricConditioner2.webp', price:279, mrp:349, rev:97, rating:4.8, cat:'Laundry'},
+  {id:'oud', name:'Hydrating Handwash | Midnight Oud', img:'WebsiteImagesHydratingHandwash-01.webp', price:249, mrp:299, rev:46, rating:4.9, cat:'Skin', badge:'NEW'},
+  {id:'ocean', name:'Hydrating Handwash | Ocean Breeze', img:'WebsiteImagesHydratingHandwash-08.webp', price:99, mrp:299, rev:69, rating:4.8, cat:'Skin', badge:'DEAL'},
+  {id:'powder', name:'Washing Machine Cleaner Powder', img:'WebsiteImagesPowder-01.webp', price:200, mrp:299, rev:34, rating:4.7, cat:'Laundry'},
+  {id:'eraser', name:'Magic Eraser', img:'WebsiteImagesMagicEraser-01_82fc4c35-3fd2-4612-83f8-ab2018a141d6.webp', price:200, mrp:299, rev:120, rating:4.9, cat:'Home'},
+];
+let cart=[]; // {id, name, price}
+function pct(p,m){return Math.round((1-p/m)*100)}
+function renderGrid(filter){
+  const el=document.getElementById('bsGrid');
+  const list = filter==='all' ? PRODUCTS.slice(0,8) : PRODUCTS.filter(p=>p.cat===filter);
+  el.innerHTML = list.map(p=>{
+    const inCart = cart.some(c=>c.id===p.id);
+    return `
+    <div class="card">
+      ${p.badge?`<span class="badge">${p.badge}</span>`:''}
+      <span class="savetag">-${pct(p.price,p.mrp)}%</span>
+      <div class="imgwrap"><img src="${BASE}${p.img}" alt="${p.name}" loading="lazy"></div>
+      <div class="cbody">
+        <div class="rname">${p.name}</div>
+        <div class="rev"><span class="stars">★</span> ${p.rating} (${p.rev})</div>
+        <div class="price"><b>₹${p.price}</b><s>₹${p.mrp}</s></div>
+        <button type="button" class="add${inCart?' in':''}" onclick="toggleCart('${p.id}','${p.name.replace(/'/g,"\\'")}',${p.price},this)">
+          ${inCart?`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Added`:'Add to Bundle'}
+        </button>
+      </div>
+    </div>`;
+  }).join('');
+}
+function toggleCart(id,name,price,btnEl){
+  const idx=cart.findIndex(c=>c.id===id);
+  if(idx>-1){
+    cart.splice(idx,1);
+    btnEl.classList.remove('in');
+    btnEl.innerHTML='Add to Bundle';
+  }else{
+    cart.push({id,name,price});
+    btnEl.classList.add('in');
+    btnEl.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Added';
+  }
+  updateCartUI();
+}
+function updateCartUI(){
+  const count=cart.length;
+  document.querySelectorAll('.cart-count').forEach(el=>el.textContent=count);
+  const mtxt=document.querySelector('.mbar .mtxt');
+  const mco=document.querySelector('.mbar .mco');
+  if(count>0){
+    const total=cart.reduce((s,c)=>s+c.price,0);
+    const away3 = 3-count, away5 = 5-count;
+    let hint = 'Free shipping included';
+    if(away3>0) hint = `Add ${away3} more for 3-pack pricing`;
+    else if(away5>0) hint = `Add ${away5} more for 5-pack pricing`;
+    mtxt.innerHTML = `<b>${count} item${count>1?'s':''} added &middot; ₹${total}</b><span>${hint}</span>`;
+    mco.textContent='Continue to Bundle';
+  }else{
+    mtxt.innerHTML = `<b>Pick any 3, pay ₹499</b><span>Takes less than a minute</span>`;
+    mco.textContent='Shop Bundles';
+  }
+}
+renderGrid('all');
+updateCartUI();
+document.querySelectorAll('.chip').forEach(ch=>{
+  ch.addEventListener('click',()=>{
+    document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+    ch.classList.add('active');
+    renderGrid(ch.dataset.f);
+  });
+});
+
 /* Before/After slider */
 const ba=document.getElementById('baSlider'), handle=document.getElementById('baHandle'), after=ba.querySelector('.after');
 let dragging=false;
