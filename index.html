@@ -66,9 +66,10 @@ header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid 
 .icon-btn svg{width:21px;height:21px}
 .cart-count{position:absolute;top:1px;right:1px;background:var(--gold);color:#fff;font-size:10.5px;font-weight:700;min-width:17px;height:17px;border-radius:9px;display:grid;place-items:center;padding:0 4px}
 .hamb{display:grid}
-.mobile-search{padding:0 18px 12px;max-width:var(--maxw);margin:0 auto}
+.mobile-search{display:none;padding:0 18px 12px;max-width:var(--maxw);margin:0 auto}
+.mobile-search.show2{display:block}
 .mobile-search .hdr-search{display:flex;width:100%}
-@media(min-width:980px){.hdr nav{display:flex}.hamb{display:none}.hdr-search{display:flex}.mobile-search{display:none}}
+@media(min-width:980px){.hdr nav{display:flex}.hamb{display:none}.hdr-search{display:flex}.mobile-search{display:none!important}}
 
 /* ============ SECTION HEADS ============ */
 .sec{padding:26px 0}
