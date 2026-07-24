@@ -283,7 +283,8 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
 .fbottom{border-top:1px solid rgba(255,255,255,.15);margin-top:28px;padding-top:18px;font-size:12.5px;text-align:center}
 
 /* ============ STICKY MOBILE CTA BAR ============ */
-.mbar{position:fixed;left:0;right:0;bottom:0;z-index:70;background:#fff;border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(0,62,61,.12);padding:12px 16px calc(12px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px}
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:70;background:#fff;border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(0,62,61,.12);padding:12px 16px calc(12px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;transform:translateY(100%);transition:transform .25s ease}
+.mbar.show{transform:translateY(0)}
 @media(min-width:1080px){.mbar{display:none}}
 .mbar .mtxt{flex:1;min-width:0}
 .mbar .mtxt b{font-size:13.5px;color:var(--teal-900);display:block}
@@ -726,6 +727,19 @@ function updateCartUI(){
 }
 renderGrid('all');
 updateCartUI();
+
+/* Reveal sticky bundle CTA only after the hero (first screen) has been scrolled past */
+const heroSec = document.querySelector('.hero');
+const mbarEl = document.querySelector('.mbar');
+if(heroSec && mbarEl){
+  const revealBar = () => {
+    const heroBottom = heroSec.getBoundingClientRect().bottom;
+    if(heroBottom <= 0){ mbarEl.classList.add('show'); }
+    else{ mbarEl.classList.remove('show'); }
+  };
+  window.addEventListener('scroll', revealBar, {passive:true});
+  revealBar();
+}
 document.querySelectorAll('.chip').forEach(ch=>{
   ch.addEventListener('click',()=>{
     document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
