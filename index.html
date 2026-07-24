@@ -148,9 +148,10 @@ header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid 
 .qcard .qprice .pct{margin-left:auto;background:var(--gold);color:#fff;font-weight:800;font-size:13.5px;padding:5px 12px;border-radius:999px;white-space:nowrap}
 .qcard .qadd{margin-top:10px;background:var(--teal-900);color:#fff;font-weight:700;padding:12px;border-radius:10px;display:flex;align-items:center;justify-content:center;gap:7px}
 .qcard .qadd:hover{background:var(--teal-700)}
-.bundle-banner-link{display:block;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin-bottom:22px;line-height:0}
+.bundle-banner-link{display:block;overflow:hidden;box-shadow:var(--shadow);margin:0 0 22px;line-height:0}
 .bundle-banner-img{width:100%;height:auto;display:block}
 .bundle-banner-link:hover .bundle-banner-img{opacity:.96}
+@media(min-width:640px){.bundle-banner-link{max-width:var(--maxw);margin:0 auto 22px;padding:0 8px;border-radius:var(--radius)}.bundle-banner-link .bundle-banner-img{border-radius:var(--radius)}}
 .bundle-steps{display:flex;flex-direction:column;gap:10px;max-width:560px;margin:0 auto 18px;background:var(--bg-green);border-radius:14px;padding:14px 18px}
 @media(min-width:720px){.bundle-steps{flex-direction:row;justify-content:space-between;gap:14px}}
 .bstep{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:600;color:var(--teal-900)}
@@ -382,10 +383,10 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
 
 <!-- CURATED BUNDLE SHOWCASE -->
 <section class="sec" id="bundles">
+  <a href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/" class="bundle-banner-link">
+    <img class="bundle-banner-img" src="https://pamandeep-ai.github.io/happiplanet-homepage/img/bundle-banner.webp" alt="Best-Selling Bundles. Save more when you shop together. Plant-based ingredients, safe for kids and pets, no harsh chemicals, better for the planet. Save up to 20% on bundles.">
+  </a>
   <div class="wrap">
-    <a href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/" class="bundle-banner-link">
-      <img class="bundle-banner-img" src="https://pamandeep-ai.github.io/happiplanet-homepage/img/bundle-banner.webp" alt="Best-Selling Bundles. Save more when you shop together. Plant-based ingredients, safe for kids and pets, no harsh chemicals, better for the planet. Save up to 20% on bundles.">
-    </a>
     <div class="qs-static">
       <div class="qcard">
         <span class="ribbon">You Save ₹398</span>
