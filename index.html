@@ -94,7 +94,8 @@ header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid 
 .hero{position:relative;background:#fff}
 .hero-img-full{width:100%;line-height:0}
 .hero-img-full img{width:100%;height:auto;display:block}
-.hero-copy-center{text-align:center;padding:18px 18px 4px;max-width:600px;margin:0 auto}
+.hero-copy-center{text-align:center;padding:0;max-width:600px;margin:0 auto}
+@media(min-width:1080px){.hero-copy-center{padding:20px 18px 4px}}
 .hero-copy-center h1{font-size:clamp(24px,6vw,38px);font-weight:800}
 .hero-copy-center p{color:var(--ink-2);font-size:15px;margin-top:10px}
 .hero-cta{display:none;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
@@ -352,8 +353,6 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
     <img src="https://pamandeep-ai.github.io/happiplanet-homepage/img/hero-banner.webp" alt="Happi Planet - effective cleaning powered by nature, loved by 25 Lakh+ homes">
   </div>
   <div class="wrap hero-copy-center">
-    <h1>A cleaner home, a happi<span class="gold-text">er</span> planet.</h1>
-    <p>Plant-based cleaning for every room. Mix and match &mdash; the more you add, the more you save.</p>
     <div class="hero-cta">
       <a class="btn-primary" href="#bundles">Make Your Bundle <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
     </div>
