@@ -135,7 +135,8 @@ header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid 
 /* ============ CURATED BUNDLES (matches bundle-page qcard) ============ */
 .qs-static{display:grid;grid-template-columns:1fr;gap:16px}
 @media(min-width:720px){.qs-static{grid-template-columns:repeat(3,1fr)}}
-.qcard{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.qcard{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column;position:relative}
+.qcard .ribbon{position:absolute;top:12px;left:0;background:var(--teal-900);color:#fff;font-family:'Poppins';font-weight:800;font-size:12.5px;padding:5px 14px 5px 12px;border-radius:0 999px 999px 0;z-index:3;letter-spacing:.01em}
 .qcard .qimg{background:var(--bg-green);display:flex;gap:2px;padding:14px;justify-content:center}
 .qcard .qimg img{width:33%;height:110px;object-fit:contain;border-radius:8px}
 .qcard .qbody{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
@@ -144,7 +145,7 @@ header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid 
 .qcard .qprice{display:flex;align-items:baseline;gap:8px;margin-top:4px}
 .qcard .qprice b{font-family:'Poppins';font-size:22px;color:var(--teal-900)}
 .qcard .qprice s{color:#9aa;font-size:14px}
-.qcard .qprice .pct{margin-left:auto;background:var(--gold);color:#fff;font-weight:700;font-size:12px;padding:3px 9px;border-radius:999px}
+.qcard .qprice .pct{margin-left:auto;background:var(--gold);color:#fff;font-weight:800;font-size:13.5px;padding:5px 12px;border-radius:999px;white-space:nowrap}
 .qcard .qadd{margin-top:10px;background:var(--teal-900);color:#fff;font-weight:700;padding:12px;border-radius:10px;display:flex;align-items:center;justify-content:center;gap:7px}
 .qcard .qadd:hover{background:var(--teal-700)}
 .bundle-steps{display:flex;flex-direction:column;gap:10px;max-width:560px;margin:0 auto 18px;background:var(--bg-green);border-radius:14px;padding:14px 18px}
@@ -313,10 +314,7 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
     <button class="icon-btn hamb" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <a class="logo" href="#"><img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/Happi_Planet_-_Brand_Color_1_eer_180x_69c215c4-391d-48e8-948d-7a43bbfda874.avif" alt="Happi Planet"></a>
     <nav>
-      <a href="#categories">Shop</a>
       <a href="#bundles">Bundles</a>
-      <a href="#bestsellers">Best Sellers</a>
-      <a href="#rooms">Shop by Room</a>
       <a href="#reviews">Reviews</a>
       <a href="#faq">FAQs</a>
     </nav>
@@ -380,79 +378,13 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
   </div>
 </section>
 
-<!-- FEATURED CATEGORIES -->
-<section class="sec" id="categories">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Shop by category</div>
-      <h2>Find your fix, by category</h2>
-      <p>Every room, every problem &mdash; one plant-based range.</p>
-    </div>
-    <div class="cat-grid">
-      <a class="cat-card" href="#bestsellers">
-        <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/KitchenCleanerWebsiteImages-01.webp" alt="Kitchen">
-        <div class="lb"><b>Kitchen</b><span>5 products</span></div>
-      </a>
-      <a class="cat-card" href="#bestsellers">
-        <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/1lt_Website_Images_Laundry_Detergent-01.webp" alt="Laundry">
-        <div class="lb"><b>Laundry</b><span>4 products</span></div>
-      </a>
-      <a class="cat-card" href="#bestsellers">
-        <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/Website_Images_Metal_Cleaner-01.webp" alt="Home">
-        <div class="lb"><b>Home</b><span>5 products</span></div>
-      </a>
-      <a class="cat-card" href="#bestsellers">
-        <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/WebsiteImagesHydratingHandwash-01.webp" alt="Skin">
-        <div class="lb"><b>Skin</b><span>2 products</span></div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- SHOP BY PROBLEM -->
-<section class="sec tight" style="background:var(--bg-green)">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Shop by problem</div>
-      <h2>Tell us what you're fighting</h2>
-      <p>We'll point you to the right fix &mdash; and the products that pair with it.</p>
-    </div>
-    <div class="prob-grid">
-      <a class="prob-card" href="#bestsellers">
-        <div class="pimg"><img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/WebsiteImagesLimeScale-01_7dde5639-eabb-439c-a335-dd2493db5827.webp" alt="Limescale"></div>
-        <h3>Limescale &amp; hard water</h3>
-        <p>Tap, sink &amp; faucet stains</p>
-        <span class="go">Shop fix <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
-      </a>
-      <a class="prob-card" href="#bestsellers">
-        <div class="pimg"><img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/KitchenCleanerWebsiteImages-01.webp" alt="Kitchen grease"></div>
-        <h3>Kitchen grease &amp; grime</h3>
-        <p>Countertops, hobs &amp; dishes</p>
-        <span class="go">Shop fix <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
-      </a>
-      <a class="prob-card" href="#bestsellers">
-        <div class="pimg"><img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/1lt_Website_Images_Laundry_Detergent-01.webp" alt="Laundry stains"></div>
-        <h3>Stubborn laundry stains</h3>
-        <p>Softer wash, no harsh smell</p>
-        <span class="go">Shop fix <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
-      </a>
-      <a class="prob-card" href="#bestsellers">
-        <div class="pimg"><img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/1lt_Website_Images_Toilet_Cleaner-01.webp" alt="Bathroom germs"></div>
-        <h3>Bathroom germs &amp; odour</h3>
-        <p>Toilet, tiles &amp; drains</p>
-        <span class="go">Shop fix <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
-      </a>
-    </div>
-  </div>
-</section>
-
 <!-- CURATED BUNDLE SHOWCASE -->
 <section class="sec" id="bundles">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Buy more, save more</div>
+      <div class="eyebrow">Best-selling bundles</div>
       <h2>Save more when you shop together</h2>
-      <p>Pick a ready-made box below, or mix your own. Either way, you pay one simple price and shipping is free.</p>
+      <p>Our most-loved combos, pre-built to save you money. Prefer your own mix? Use the "Shop Bundles" button below anytime.</p>
     </div>
     <div class="bundle-steps">
       <div class="bstep"><span class="bnum">1</span> Pick 2, 3 or 5 products</div>
@@ -461,6 +393,7 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
     </div>
     <div class="qs-static">
       <div class="qcard">
+        <span class="ribbon">You Save ₹398</span>
         <div class="qimg">
           <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/KitchenCleanerWebsiteImages-01.webp" alt="">
           <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/WebsiteImages-01.webp" alt="">
@@ -474,6 +407,7 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
         </div>
       </div>
       <div class="qcard">
+        <span class="ribbon">You Save ₹398</span>
         <div class="qimg">
           <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/1lt_Website_Images_Laundry_Detergent-01.webp" alt="">
           <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/FabricConditioner2.webp" alt="">
@@ -487,6 +421,7 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
         </div>
       </div>
       <div class="qcard">
+        <span class="ribbon" style="background:var(--gold)">Biggest Saving &mdash; ₹646</span>
         <div class="qimg">
           <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/KitchenCleanerWebsiteImages-01.webp" alt="">
           <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/1lt_Website_Images_Floor_Cleaner-01.webp" alt="">
@@ -507,79 +442,6 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
         <p>Choose any 2, 3 or 5 products yourself. You'll still get one simple price and free delivery &mdash; no promo code needed.</p>
       </div>
       <a class="btn-primary" href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/">Make My Own Box <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-    </div>
-  </div>
-</section>
-
-<!-- BEST SELLERS -->
-<section class="sec" id="bestsellers" style="background:var(--bg-green)">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Fan favourites</div>
-      <h2>Best sellers, loved by 50,000+ homes</h2>
-    </div>
-    <div class="chips">
-      <button class="chip active" data-f="all">All</button>
-      <button class="chip" data-f="Kitchen">Kitchen</button>
-      <button class="chip" data-f="Laundry">Laundry</button>
-      <button class="chip" data-f="Home">Home</button>
-      <button class="chip" data-f="Skin">Skin</button>
-    </div>
-    <div class="grid" id="bsGrid"></div>
-    <a class="sec-link" href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/#shop">View full catalog &amp; build a bundle &rarr;</a>
-  </div>
-</section>
-
-<!-- FREQUENTLY BOUGHT TOGETHER -->
-<section class="sec tight">
-  <div class="wrap">
-    <div class="sec-head" style="margin-bottom:16px">
-      <div class="eyebrow">Complete your cleaning kit</div>
-      <h2>These go great together</h2>
-      <p>Customers who buy the Kitchen Cleaner usually add these two as well.</p>
-    </div>
-    <div class="fbt">
-      <div class="fbt-items">
-        <div class="fi"><img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/KitchenCleanerWebsiteImages-01.webp" alt="Foaming Kitchen Cleaner"></div>
-        <span class="plus">+</span>
-        <div class="fi"><img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/WebsiteImages-01.webp" alt="Dishwash Liquid Gel"></div>
-        <span class="plus">+</span>
-        <div class="fi"><img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/WebsiteImagesKitchenTowelBox-01_56256767-9a4f-4edd-a864-1089d83ba30e.webp" alt="Reusable Kitchen Towel"></div>
-      </div>
-      <div class="fbt-side">
-        <p>Buy all 3 and save ₹100</p>
-        <div class="tot">₹499 <s>₹599</s></div>
-        <a class="btn-primary" style="margin-top:10px" href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/">Add All 3 &amp; Save ₹100</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SHOP BY ROOM -->
-<section class="sec" id="rooms" style="background:var(--bg-green)">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Shop by room</div>
-      <h2>Sorted, room by room</h2>
-      <p>Everything a space needs, curated together.</p>
-    </div>
-    <div class="room-grid">
-      <a class="room-card" href="#bestsellers">
-        <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/KitchenCleanerWebsiteImages-01.webp" alt="Kitchen">
-        <div class="lb"><b>Kitchen</b><span>Cleaner, dishwash &amp; more</span></div>
-      </a>
-      <a class="room-card" href="#bestsellers">
-        <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/1lt_Website_Images_Toilet_Cleaner-01.webp" alt="Bathroom">
-        <div class="lb"><b>Bathroom</b><span>Toilet &amp; limescale care</span></div>
-      </a>
-      <a class="room-card" href="#bestsellers">
-        <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/1lt_Website_Images_Laundry_Detergent-01.webp" alt="Laundry room">
-        <div class="lb"><b>Laundry room</b><span>Detergent, conditioner &amp; more</span></div>
-      </a>
-      <a class="room-card" href="#bestsellers">
-        <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/Website_Images_Metal_Cleaner-01.webp" alt="Living room">
-        <div class="lb"><b>Living room</b><span>Floor &amp; metal care</span></div>
-      </a>
     </div>
   </div>
 </section>
@@ -748,10 +610,10 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
       </div>
       <div>
         <h4>Shop</h4>
-        <a href="#categories">Laundry</a>
-        <a href="#categories">Kitchen</a>
-        <a href="#categories">Home</a>
-        <a href="#categories">Skin</a>
+        <a href="https://www.happi-planet.com/collections/laundry">Laundry</a>
+        <a href="https://www.happi-planet.com/collections/kitchen">Kitchen</a>
+        <a href="https://www.happi-planet.com/collections/home">Home</a>
+        <a href="https://www.happi-planet.com/collections/skin">Skin</a>
       </div>
       <div>
         <h4>About</h4>
@@ -777,85 +639,6 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
 </div>
 
 <script>
-const BASE='https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/';
-const PRODUCTS=[
-  {id:'kitchen', name:'Foaming Kitchen Cleaner', img:'KitchenCleanerWebsiteImages-01.webp', price:200, mrp:299, rev:573, rating:4.9, cat:'Kitchen', badge:'BEST SELLER'},
-  {id:'detergent', name:'Natural Laundry Detergent', img:'1lt_Website_Images_Laundry_Detergent-01.webp', price:249, mrp:299, rev:215, rating:4.8, cat:'Laundry', badge:'BEST SELLER'},
-  {id:'floor', name:'Herbal Floor Cleaner', img:'1lt_Website_Images_Floor_Cleaner-01.webp', price:249, mrp:299, rev:156, rating:4.8, cat:'Home', badge:'BEST SELLER'},
-  {id:'dishwash', name:'Dishwash Liquid Gel', img:'WebsiteImages-01.webp', price:149, mrp:299, rev:88, rating:4.7, cat:'Kitchen', badge:'DEAL'},
-  {id:'copper', name:'Copper, Bronze & Brass Cleaner', img:'Website_Images_Metal_Cleaner-01.webp', price:200, mrp:299, rev:272, rating:4.9, cat:'Home'},
-  {id:'limescale', name:'Tap Cleaner & Limescale Remover', img:'WebsiteImagesLimeScale-01_7dde5639-eabb-439c-a335-dd2493db5827.webp', price:200, mrp:299, rev:8, rating:4.6, cat:'Kitchen'},
-  {id:'toilet', name:'Non-Toxic Toilet Cleaner', img:'1lt_Website_Images_Toilet_Cleaner-01.webp', price:229, mrp:299, rev:14, rating:4.7, cat:'Home'},
-  {id:'fabric', name:'Natural Fabric Conditioner', img:'FabricConditioner2.webp', price:279, mrp:349, rev:97, rating:4.8, cat:'Laundry'},
-  {id:'oud', name:'Hydrating Handwash | Midnight Oud', img:'WebsiteImagesHydratingHandwash-01.webp', price:249, mrp:299, rev:46, rating:4.9, cat:'Skin', badge:'NEW'},
-  {id:'ocean', name:'Hydrating Handwash | Ocean Breeze', img:'WebsiteImagesHydratingHandwash-08.webp', price:99, mrp:299, rev:69, rating:4.8, cat:'Skin', badge:'DEAL'},
-  {id:'powder', name:'Washing Machine Cleaner Powder', img:'WebsiteImagesPowder-01.webp', price:200, mrp:299, rev:34, rating:4.7, cat:'Laundry'},
-  {id:'eraser', name:'Magic Eraser', img:'WebsiteImagesMagicEraser-01_82fc4c35-3fd2-4612-83f8-ab2018a141d6.webp', price:200, mrp:299, rev:120, rating:4.9, cat:'Home'},
-];
-let cart=[]; // {id, name, price}
-function pct(p,m){return Math.round((1-p/m)*100)}
-function renderGrid(filter){
-  const el=document.getElementById('bsGrid');
-  const list = filter==='all' ? PRODUCTS.slice(0,8) : PRODUCTS.filter(p=>p.cat===filter);
-  el.innerHTML = list.map(p=>{
-    const inCart = cart.some(c=>c.id===p.id);
-    return `
-    <div class="card">
-      ${p.badge?`<span class="badge">${p.badge}</span>`:''}
-      <span class="savetag">-${pct(p.price,p.mrp)}%</span>
-      <div class="imgwrap"><img src="${BASE}${p.img}" alt="${p.name}" loading="lazy"></div>
-      <div class="cbody">
-        <div class="rname">${p.name}</div>
-        <div class="rev"><span class="stars">★</span> ${p.rating} (${p.rev})</div>
-        <div class="price"><b>₹${p.price}</b><s>₹${p.mrp}</s></div>
-        <button type="button" class="add${inCart?' in':''}" onclick="toggleCart('${p.id}','${p.name.replace(/'/g,"\\'")}',${p.price},this)">
-          ${inCart?`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Added`:'Add to Bundle'}
-        </button>
-      </div>
-    </div>`;
-  }).join('');
-}
-function toggleCart(id,name,price,btnEl){
-  const idx=cart.findIndex(c=>c.id===id);
-  if(idx>-1){
-    cart.splice(idx,1);
-    btnEl.classList.remove('in');
-    btnEl.innerHTML='Add to Bundle';
-  }else{
-    cart.push({id,name,price});
-    btnEl.classList.add('in');
-    btnEl.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Added';
-  }
-  updateCartUI();
-}
-function updateCartUI(){
-  const count=cart.length;
-  document.querySelectorAll('.cart-count').forEach(el=>el.textContent=count);
-  const mtxt=document.querySelector('.mbar .mtxt');
-  const mco=document.querySelector('.mbar .mco');
-  if(count>0){
-    const total=cart.reduce((s,c)=>s+c.price,0);
-    const away3 = 3-count, away5 = 5-count;
-    let hint = 'Free shipping included';
-    if(away3>0) hint = `Add ${away3} more for 3-pack pricing`;
-    else if(away5>0) hint = `Add ${away5} more for 5-pack pricing`;
-    mtxt.innerHTML = `<b>${count} item${count>1?'s':''} added &middot; ₹${total}</b><span>${hint}</span>`;
-    mco.textContent='Continue to Bundle';
-  }else{
-    mtxt.innerHTML = `<b>Pick any 3, pay ₹499</b><span>Takes less than a minute</span>`;
-    mco.textContent='Shop Bundles';
-  }
-}
-renderGrid('all');
-updateCartUI();
-document.querySelectorAll('.chip').forEach(ch=>{
-  ch.addEventListener('click',()=>{
-    document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
-    ch.classList.add('active');
-    renderGrid(ch.dataset.f);
-  });
-});
-
 /* Before/After slider */
 const ba=document.getElementById('baSlider'), handle=document.getElementById('baHandle'), after=ba.querySelector('.after');
 let dragging=false;
