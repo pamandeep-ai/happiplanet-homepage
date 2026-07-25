@@ -92,8 +92,12 @@ header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid 
 
 /* ============ HERO ============ */
 .hero{position:relative;background:#fff}
-.hero-img-full{width:100%;line-height:0}
-.hero-img-full img{width:100%;height:auto;display:block}
+.hero-img-full{width:100%;position:relative;aspect-ratio:2.3/1;overflow:hidden;background:var(--bg-green)}
+.hero-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 1s ease;display:block}
+.hero-slide.active{opacity:1}
+.hero-dots{position:absolute;left:0;right:0;bottom:14px;display:flex;gap:7px;justify-content:center;z-index:3}
+.hero-dots span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55);border:1px solid rgba(0,0,0,.08);transition:background .3s,transform .3s;cursor:pointer}
+.hero-dots span.active{background:var(--gold);transform:scale(1.3)}
 .hero-copy-center{text-align:center;padding:0;max-width:600px;margin:0 auto}
 @media(min-width:1080px){.hero-copy-center{padding:20px 18px 4px}}
 .hero-copy-center h1{font-size:clamp(24px,6vw,38px);font-weight:800}
@@ -418,8 +422,11 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-img-full">
-    <img src="https://pamandeep-ai.github.io/happiplanet-homepage/img/hero-banner.webp" alt="Happi Planet - effective cleaning powered by nature, loved by 25 Lakh+ homes">
+  <div class="hero-img-full" id="heroCarousel">
+    <img class="hero-slide active" src="https://pamandeep-ai.github.io/happiplanet-homepage/img/hero-banner.webp" alt="Happi Planet - effective cleaning powered by nature, loved by 25 Lakh+ homes">
+    <img class="hero-slide" src="https://pamandeep-ai.github.io/happiplanet-homepage/img/bundle-banner.webp" alt="Best-Selling Bundles - save more when you shop together">
+    <img class="hero-slide" src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/New_Website_Banner-1920x600_jpg.webp" alt="Buy More, Save More - any 3 at 499">
+    <div class="hero-dots" id="heroDots"></div>
   </div>
   <div class="wrap hero-copy-center">
     <div class="hero-cta">
@@ -954,6 +961,35 @@ function updateCartUI(){
     }
   }
 }
+/* Hero carousel: auto-advance through the 3 banners */
+(function(){
+  const slides = document.querySelectorAll('#heroCarousel .hero-slide');
+  const dotsWrap = document.getElementById('heroDots');
+  if(!slides.length || !dotsWrap) return;
+  slides.forEach((_,i)=>{
+    const d = document.createElement('span');
+    if(i===0) d.classList.add('active');
+    d.addEventListener('click', ()=>goTo(i));
+    dotsWrap.appendChild(d);
+  });
+  const dots = dotsWrap.querySelectorAll('span');
+  let idx = 0, timer;
+  function goTo(i){
+    slides[idx].classList.remove('active');
+    dots[idx].classList.remove('active');
+    idx = i;
+    slides[idx].classList.add('active');
+    dots[idx].classList.add('active');
+    restart();
+  }
+  function next(){ goTo((idx+1) % slides.length); }
+  function restart(){
+    clearInterval(timer);
+    timer = setInterval(next, 4000);
+  }
+  restart();
+})();
+
 /* Sticky bar: rotating trust messages */
 (function(){
   const wrap = document.getElementById('mbarTrust');
