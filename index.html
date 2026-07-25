@@ -340,9 +340,26 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
 .mbar .mco:hover{background:var(--teal-700)}
 
 .i-chk{width:1em;height:1em;display:inline-block;vertical-align:-.14em}
+/* ============ PRELOADER ============ */
+.preloader{position:fixed;inset:0;z-index:9999;background:var(--cream);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;transition:opacity .5s ease,visibility .5s ease}
+.preloader.hide{opacity:0;visibility:hidden;pointer-events:none}
+.preloader-logo{height:52px;width:auto;animation:preloaderPulse 1.5s ease-in-out infinite}
+@keyframes preloaderPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.07);opacity:.82}}
+.preloader-leaf{width:22px;height:22px;color:var(--green);animation:preloaderSpin 1.6s linear infinite}
+@keyframes preloaderSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.preloader-bar{width:140px;height:3px;background:var(--line);border-radius:999px;overflow:hidden;position:relative}
+.preloader-bar span{position:absolute;top:0;left:0;height:100%;width:35%;background:var(--gold);border-radius:999px;animation:preloaderLoad 1.2s ease-in-out infinite}
+@keyframes preloaderLoad{0%{transform:translateX(-100%)}100%{transform:translateX(385%)}}
+.preloader-txt{font-family:'Poppins';font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-700)}
 </style>
 </head>
 <body>
+<div class="preloader" id="preloader">
+  <img class="preloader-logo" src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/Happi_Planet_-_Brand_Color_1_eer_180x_69c215c4-391d-48e8-948d-7a43bbfda874.avif" alt="Happi Planet">
+  <div class="preloader-bar"><span></span></div>
+  <div class="preloader-txt">Loading freshness&hellip;</div>
+</div>
+
 
 <!-- ANNOUNCEMENT TICKER -->
 <div class="ticker" aria-hidden="true">
@@ -776,6 +793,28 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
     <a class="mco" href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/">Make Your Bundle</a>
   </div>
 </div>
+
+<script>
+/* Preloader: minimum display time for a smooth feel, safety cap so it never gets stuck */
+(function(){
+  const pre = document.getElementById('preloader');
+  if(!pre) return;
+  const shownAt = Date.now();
+  let hidden = false;
+  const hidePreloader = () => {
+    if(hidden) return;
+    hidden = true;
+    const elapsed = Date.now() - shownAt;
+    const wait = Math.max(0, 700 - elapsed);
+    setTimeout(()=>{
+      pre.classList.add('hide');
+      setTimeout(()=>pre.remove(), 600);
+    }, wait);
+  };
+  window.addEventListener('load', hidePreloader);
+  setTimeout(hidePreloader, 4000); // safety cap
+})();
+</script>
 
 <script>
 const BASE='https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/';
