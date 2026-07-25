@@ -146,8 +146,14 @@ header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid 
 .prob-card .go{font-size:12.5px;font-weight:700;color:var(--teal-700);display:inline-flex;align-items:center;gap:4px}
 
 /* ============ CURATED BUNDLES (matches bundle-page qcard) ============ */
-.qs-static{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:720px){.qs-static{grid-template-columns:repeat(3,1fr)}}
+.qs-static{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:4px 4px 12px;scrollbar-width:none}
+.qs-static::-webkit-scrollbar{display:none}
+.qs-static .qcard{scroll-snap-align:start;flex:0 0 82%;max-width:320px}
+@media(min-width:640px){.qs-static .qcard{flex:0 0 46%}}
+@media(min-width:900px){.qs-static{overflow-x:visible}.qs-static .qcard{flex:1;max-width:none}}
+.qbundles-heading{text-align:center;margin-bottom:16px}
+.qbundles-heading h3{font-family:'Poppins';font-size:clamp(19px,5vw,24px);font-weight:800;color:var(--teal-900)}
+.qbundles-heading p{color:var(--ink-2);font-size:13.5px;margin-top:5px}
 .qcard{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column;position:relative}
 .qcard .ribbon{position:absolute;top:12px;left:0;background:var(--teal-900);color:#fff;font-family:'Poppins';font-weight:800;font-size:12.5px;padding:5px 14px 5px 12px;border-radius:0 999px 999px 0;z-index:3;letter-spacing:.01em}
 .qcard .qimg{background:linear-gradient(160deg,var(--bg-green) 0%,#fff 100%);display:flex;align-items:flex-start;gap:4px;padding:16px 10px 12px;justify-content:center}
@@ -429,6 +435,10 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
       <a href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/" class="bundle-banner-link">
         <img class="bundle-banner-img" src="https://pamandeep-ai.github.io/happiplanet-homepage/img/bundle-banner.webp" alt="Best-Selling Bundles. Save more when you shop together. Plant-based ingredients, safe for kids and pets, no harsh chemicals, better for the planet. Save up to 20% on bundles.">
       </a>
+    </div>
+    <div class="qbundles-heading">
+      <h3>Choose Your Bundle</h3>
+      <p>Swipe to explore our best-selling combos &mdash; each one pre-built to save you money.</p>
     </div>
     <div class="qs-static">
       <div class="qcard">
