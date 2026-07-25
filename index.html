@@ -308,13 +308,19 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
 .fbottom{border-top:1px solid rgba(255,255,255,.15);margin-top:28px;padding-top:18px;font-size:12.5px;text-align:center}
 
 /* ============ STICKY MOBILE CTA BAR ============ */
-.mbar{position:fixed;left:0;right:0;bottom:0;z-index:70;background:#fff;border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(0,62,61,.12);padding:12px 16px calc(12px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;transform:translateY(100%);transition:transform .25s ease}
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(255,255,255,.6);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);border-top:1px solid rgba(255,255,255,.6);box-shadow:0 -10px 32px rgba(0,62,61,.18);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:8px;transform:translateY(100%);transition:transform .25s ease}
 .mbar.show{transform:translateY(0)}
 @media(min-width:1080px){.mbar{display:none}}
+.mbar-trust{position:relative;display:flex;align-items:center;justify-content:center;gap:6px;height:18px;overflow:hidden}
+.mbar-trust-item{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:var(--teal-700);letter-spacing:.02em;opacity:0;transform:translateY(6px);transition:opacity .4s ease,transform .4s ease;position:absolute}
+.mbar-trust-item.active{opacity:1;transform:translateY(0);position:relative}
+.mbar-trust-item svg{width:12px;height:12px;flex:0 0 auto;color:var(--gold)}
+.mbar-row{display:flex;align-items:center;gap:12px}
 .mbar .mtxt{flex:1;min-width:0}
 .mbar .mtxt b{font-size:13.5px;color:var(--teal-900);display:block}
 .mbar .mtxt span{font-size:11.5px;color:var(--ink-2)}
-.mbar .mco{background:var(--teal-900);color:#fff;font-family:'Poppins';font-weight:800;font-size:14px;padding:12px 18px;border-radius:11px;white-space:nowrap}
+.mbar .mco{background:var(--teal-900);color:#fff;font-family:'Poppins';font-weight:800;font-size:14px;padding:12px 18px;border-radius:11px;white-space:nowrap;box-shadow:0 4px 14px rgba(0,62,61,.25);transition:background .2s,transform .15s}
+.mbar .mco:active{transform:scale(.97)}
 .mbar .mco:hover{background:var(--teal-700)}
 
 .i-chk{width:1em;height:1em;display:inline-block;vertical-align:-.14em}
@@ -711,8 +717,11 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
 
 <!-- STICKY MOBILE CTA -->
 <div class="mbar">
-  <div class="mtxt"><b>Pick any 3, pay ₹499</b><span>Takes less than a minute</span></div>
-  <a class="mco" href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/">Make Your Bundle</a>
+  <div class="mbar-trust" id="mbarTrust"></div>
+  <div class="mbar-row">
+    <div class="mtxt"><b>Pick any 3, pay ₹499</b><span>Takes less than a minute</span></div>
+    <a class="mco" href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/">Make Your Bundle</a>
+  </div>
 </div>
 
 <script>
@@ -785,6 +794,33 @@ function updateCartUI(){
     mco.textContent='Make Your Bundle';
   }
 }
+/* Sticky bar: rotating trust messages */
+(function(){
+  const wrap = document.getElementById('mbarTrust');
+  if(!wrap) return;
+  const MSGS = [
+    {icon:'<path d="M1 5h13v10H1z"/><path d="M14 8h4l3 3v4h-7z"/><circle cx="5" cy="17.5" r="1.7"/><circle cx="17.5" cy="17.5" r="1.7"/>', text:'Free Shipping On Every Bundle'},
+    {icon:'<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>', text:'30-Day Easy Delivery'},
+    {icon:'<path d="M12 2l2.9 6.26 6.85.6-5.18 4.55 1.55 6.7L12 17.9 5.88 20.7l1.55-6.7L2.25 8.86l6.85-.6z"/>', text:'Best Seller \u2014 Loved by Thousands'},
+    {icon:'<circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3.1-6 7-6s7 2.7 7 6"/><circle cx="17" cy="8" r="2.4"/><path d="M17 12.2c2.6.4 4.6 2.4 4.6 4.8"/>', text:'Trusted by 50,000+ Homes'},
+    {icon:'<path d="M13 2 4 14h6l-1 8 9-12h-6z"/>', text:'Limited-Time Offer \u2014 Save More Today'},
+    {icon:'<path d="M12 2l2.9 6.26 6.85.6-5.18 4.55 1.55 6.7L12 17.9 5.88 20.7l1.55-6.7L2.25 8.86l6.85-.6z"/>', text:'4.8/5 Rated by 12,000+ Buyers'}
+  ];
+  MSGS.forEach((m,i)=>{
+    const el = document.createElement('div');
+    el.className = 'mbar-trust-item' + (i===0?' active':'');
+    el.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">${m.icon}</svg><span>${m.text}</span>`;
+    wrap.appendChild(el);
+  });
+  const msgEls = wrap.querySelectorAll('.mbar-trust-item');
+  let mIdx = 0;
+  setInterval(()=>{
+    msgEls[mIdx].classList.remove('active');
+    mIdx = (mIdx+1) % msgEls.length;
+    msgEls[mIdx].classList.add('active');
+  }, 2600);
+})();
+
 /* Trust bar slider: auto-cycle one benefit at a time */
 (function(){
   const items = document.querySelectorAll('#trustSlider .trust-item');
