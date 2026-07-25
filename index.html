@@ -192,6 +192,7 @@ header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid 
 .qcard .qprice b{font-family:'Poppins';font-size:22px;color:var(--teal-900)}
 .qcard .qprice s{color:#9aa;font-size:14px}
 .qcard .qprice .pct{margin-left:auto;background:var(--gold);color:#fff;font-weight:800;font-size:13.5px;padding:5px 12px;border-radius:999px;white-space:nowrap}
+.qtax{font-size:11px;color:var(--ink-2);margin-top:-2px}
 .qcard .qadd{margin-top:10px;background:var(--teal-900);color:#fff;font-weight:700;padding:12px;border-radius:10px;display:flex;align-items:center;justify-content:center;gap:7px}
 .qcard .qadd:hover{background:var(--teal-700)}
 .bundle-banner-frame{border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:var(--shadow);overflow:hidden;margin-bottom:22px}
@@ -346,6 +347,10 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
 .fbottom{border-top:1px solid rgba(255,255,255,.15);margin-top:28px;padding-top:18px;font-size:12.5px;text-align:center}
 
 /* ============ STICKY MOBILE CTA BAR ============ */
+.wa-float{position:fixed;right:16px;bottom:96px;z-index:75;width:52px;height:52px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.25);transition:transform .15s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:28px;height:28px}
+@media(min-width:1080px){.wa-float{bottom:24px}}
 .mbar{position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(255,255,255,.6);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);border-top:1px solid rgba(255,255,255,.6);box-shadow:0 -10px 32px rgba(0,62,61,.18);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:8px;transform:translateY(100%);transition:transform .25s ease}
 .mbar.show{transform:translateY(0)}
 @media(min-width:1080px){.mbar{display:none}}
@@ -554,6 +559,7 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
           <h3>Kitchen Essentials <span style="font-family:'Inter';font-weight:600;font-size:12px;color:var(--ink-2)">(3 products)</span></h3>
           <div class="qmeta">Includes: Foaming Kitchen Cleaner, Dishwash Gel &amp; Tap Cleaner. Everything for a sparkling kitchen &mdash; no need to pick separately.</div>
           <div class="qprice"><b>₹499</b><s>₹897</s><span class="pct">Save ₹398</span></div>
+          <div class="qtax">Inclusive of all taxes &middot; COD available</div>
           <a class="qadd" href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/">Shop Bundle <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -591,6 +597,7 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
           <h3>Laundry Care Bundle <span style="font-family:'Inter';font-weight:600;font-size:12px;color:var(--ink-2)">(3 products)</span></h3>
           <div class="qmeta">Includes: Detergent, Fabric Conditioner &amp; Machine Cleaner Powder. Softer, fresher wash, all in one box.</div>
           <div class="qprice"><b>₹499</b><s>₹947</s><span class="pct">Save ₹448</span></div>
+          <div class="qtax">Inclusive of all taxes &middot; COD available</div>
           <a class="qadd" href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/">Shop Bundle <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -629,6 +636,7 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
           <h3>Complete Home Bundle <span style="font-family:'Inter';font-weight:600;font-size:12px;color:var(--ink-2)">(5 products)</span></h3>
           <div class="qmeta">Includes: Kitchen Cleaner, Laundry Detergent, Floor Cleaner, Toilet Cleaner &amp; Handwash. Our biggest saving box.</div>
           <div class="qprice"><b>₹799</b><s>₹1,495</s><span class="pct">Save ₹696</span></div>
+          <div class="qtax">Inclusive of all taxes &middot; COD available</div>
           <a class="qadd" href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/">Shop Bundle <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -666,6 +674,7 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
           <h3>Bathroom Deep Clean Bundle <span style="font-family:'Inter';font-weight:600;font-size:12px;color:var(--ink-2)">(3 products)</span></h3>
           <div class="qmeta">Includes: Toilet Cleaner, Tap Cleaner &amp; Magic Eraser. A complete bathroom refresh in one box.</div>
           <div class="qprice"><b>₹499</b><s>₹897</s><span class="pct">Save ₹398</span></div>
+          <div class="qtax">Inclusive of all taxes &middot; COD available</div>
           <a class="qadd" href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/">Shop Bundle <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -694,6 +703,7 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
           <h3>Hard Water Solution Kit <span style="font-family:'Inter';font-weight:600;font-size:12px;color:var(--ink-2)">(2 products)</span></h3>
           <div class="qmeta">Includes: Tap Cleaner &amp; Toilet Cleaner. A quick, focused fix for hard water stains across the home.</div>
           <div class="qprice"><b>₹349</b><s>₹598</s><span class="pct">Save ₹249</span></div>
+          <div class="qtax">Inclusive of all taxes &middot; COD available</div>
           <a class="qadd" href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/">Shop Bundle <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -1016,6 +1026,11 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
   </div>
 </footer>
 
+<!-- WHATSAPP SUPPORT -->
+<a class="wa-float" href="https://wa.me/919930123234?text=Hi%2C%20I%20have%20a%20question%20about%20Happi%20Planet%20products" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C22 6.45 17.5 2 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.2 8.2 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.26-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.42 5.83c0 4.55-3.7 8.24-8.26 8.24zm4.52-6.18c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43a1.68 1.68 0 0 0 .25-.41.46.46 0 0 0-.02-.44c-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48a.92.92 0 0 0-.67.31c-.23.25-.87.85-.87 2.08s.89 2.42 1.02 2.58c.12.17 1.75 2.67 4.24 3.75.59.25 1.05.4 1.41.51.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+</a>
+
 <!-- STICKY MOBILE CTA -->
 <div class="mbar">
   <div class="mbar-trust" id="mbarTrust"></div>
@@ -1079,6 +1094,7 @@ function renderGrid(filter){
         <div class="rname">${p.name}</div>
         <div class="rev"><span class="stars">★</span> ${p.rating} (${p.rev})</div>
         <div class="price"><b>₹${p.price}</b><s>₹${p.mrp}</s></div>
+        <div class="qtax" style="margin-bottom:2px">Inclusive of all taxes</div>
         <a href="#bundles" class="also-bundle">Also in a bundle &mdash; save more</a>
         <button type="button" class="add${inCart?' in':''}" onclick="toggleCart('${p.id}','${p.name.replace(/'/g,"\\'")}',${p.price},this)">
           ${inCart?`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Added`:'Add to Bundle'}
@@ -1201,6 +1217,7 @@ function updateCartUI(){
   const MSGS = [
     {icon:'<path d="M1 5h13v10H1z"/><path d="M14 8h4l3 3v4h-7z"/><circle cx="5" cy="17.5" r="1.7"/><circle cx="17.5" cy="17.5" r="1.7"/>', text:'Free Shipping On Every Bundle'},
     {icon:'<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>', text:'30-Day Easy Delivery'},
+    {icon:'<path d="M2 10l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>', text:'Cash on Delivery Available'},
     {icon:'<path d="M12 2l2.9 6.26 6.85.6-5.18 4.55 1.55 6.7L12 17.9 5.88 20.7l1.55-6.7L2.25 8.86l6.85-.6z"/>', text:'Best Seller \u2014 Loved by Thousands'},
     {icon:'<circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3.1-6 7-6s7 2.7 7 6"/><circle cx="17" cy="8" r="2.4"/><path d="M17 12.2c2.6.4 4.6 2.4 4.6 4.8"/>', text:'Trusted by 50,000+ Homes'},
     {icon:'<path d="M13 2 4 14h6l-1 8 9-12h-6z"/>', text:'Limited-Time Offer \u2014 Save More Today'},
