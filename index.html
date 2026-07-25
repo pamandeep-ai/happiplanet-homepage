@@ -151,7 +151,15 @@ header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid 
 .qcard{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column;position:relative}
 .qcard .ribbon{position:absolute;top:12px;left:0;background:var(--teal-900);color:#fff;font-family:'Poppins';font-weight:800;font-size:12.5px;padding:5px 14px 5px 12px;border-radius:0 999px 999px 0;z-index:3;letter-spacing:.01em}
 .qcard .qimg{background:var(--bg-green);display:flex;gap:2px;padding:14px;justify-content:center}
-.qcard .qimg img{width:33%;height:110px;object-fit:contain;border-radius:8px}
+.qcard .qimg .qhotspot{position:relative;width:33%;display:block;border-radius:8px}
+.qcard .qimg .qhotspot img{width:100%;height:110px;object-fit:contain;border-radius:8px;display:block;transition:transform .2s}
+.qcard .qimg .qhotspot:hover img{transform:scale(1.05)}
+.qhotspot-dot{position:absolute;bottom:6px;right:6px;width:22px;height:22px;border-radius:50%;background:var(--teal-900);color:#fff;display:grid;place-items:center;box-shadow:0 2px 6px rgba(0,0,0,.25);animation:hotspotPulse 2.4s ease-in-out infinite;transition:background .2s,transform .2s}
+.qhotspot-dot svg{width:11px;height:11px}
+.qcard .qimg .qhotspot:hover .qhotspot-dot{background:var(--gold);transform:scale(1.18)}
+@keyframes hotspotPulse{0%,100%{box-shadow:0 0 0 0 rgba(0,96,94,.35)}50%{box-shadow:0 0 0 6px rgba(0,96,94,0)}}
+.qtip{position:absolute;bottom:34px;left:50%;transform:translateX(-50%) translateY(4px);background:var(--teal-900);color:#fff;font-size:10.5px;font-weight:600;padding:4px 9px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:4}
+.qcard .qimg .qhotspot:hover .qtip{opacity:1;transform:translateX(-50%) translateY(0)}
 .qcard .qbody{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
 .qcard h3{font-size:18px;font-weight:700}
 .qcard .qmeta{font-size:13px;color:var(--ink-2);flex:1}
@@ -410,9 +418,21 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
       <div class="qcard">
         <span class="ribbon">You Save ₹398</span>
         <div class="qimg">
-          <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/KitchenCleanerWebsiteImages-01.webp" alt="">
-          <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/WebsiteImages-01.webp" alt="">
-          <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/WebsiteImagesLimeScale-01_7dde5639-eabb-439c-a335-dd2493db5827.webp" alt="">
+          <a class="qhotspot" href="https://www.happi-planet.com/products/happi-planet-kitchen-cleaner-india-s-1st-foaming-formulation-for-less-scrubbing-500ml-suitable-for-stoves-chimneys-counter-tops-appliances-walls-cabinets-non-toxic-natural" target="_blank" rel="noopener" aria-label="View Kitchen Cleaner">
+            <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/KitchenCleanerWebsiteImages-01.webp" alt="Kitchen Cleaner">
+            <span class="qtip">Kitchen Cleaner</span>
+            <span class="qhotspot-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg></span>
+          </a>
+          <a class="qhotspot" href="https://www.happi-planet.com/products/organic-and-natural-dishwash-liquid-pack-of-1l" target="_blank" rel="noopener" aria-label="View Dishwash Liquid Gel">
+            <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/WebsiteImages-01.webp" alt="Dishwash Liquid Gel">
+            <span class="qtip">Dishwash Liquid Gel</span>
+            <span class="qhotspot-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg></span>
+          </a>
+          <a class="qhotspot" href="https://www.happi-planet.com/products/tap-cleaner-lime-scale-remover" target="_blank" rel="noopener" aria-label="View Tap Cleaner & Limescale Remover">
+            <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/WebsiteImagesLimeScale-01_7dde5639-eabb-439c-a335-dd2493db5827.webp" alt="Tap Cleaner & Limescale Remover">
+            <span class="qtip">Tap Cleaner & Limescale Remover</span>
+            <span class="qhotspot-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg></span>
+          </a>
         </div>
         <div class="qbody">
           <h3>Kitchen Essentials <span style="font-family:'Inter';font-weight:600;font-size:12px;color:var(--ink-2)">(3 products)</span></h3>
@@ -424,9 +444,21 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
       <div class="qcard">
         <span class="ribbon">You Save ₹448</span>
         <div class="qimg">
-          <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/1lt_Website_Images_Laundry_Detergent-01.webp" alt="">
-          <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/FabricConditioner2.webp" alt="">
-          <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/WebsiteImagesPowder-01.webp" alt="">
+          <a class="qhotspot" href="https://www.happi-planet.com/products/eco-friendly-laundry-detergent-1l-pack" target="_blank" rel="noopener" aria-label="View Natural Laundry Detergent">
+            <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/1lt_Website_Images_Laundry_Detergent-01.webp" alt="Natural Laundry Detergent">
+            <span class="qtip">Natural Laundry Detergent</span>
+            <span class="qhotspot-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg></span>
+          </a>
+          <a class="qhotspot" href="https://www.happi-planet.com/products/eco-friendly-fabric-conditioner-1l-pack" target="_blank" rel="noopener" aria-label="View Natural Fabric Conditioner">
+            <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/FabricConditioner2.webp" alt="Natural Fabric Conditioner">
+            <span class="qtip">Natural Fabric Conditioner</span>
+            <span class="qhotspot-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg></span>
+          </a>
+          <a class="qhotspot" href="https://www.happi-planet.com/products/washing-machine-cleaner-descaler-powder" target="_blank" rel="noopener" aria-label="View Washing Machine Cleaner & Descaler Powder">
+            <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/WebsiteImagesPowder-01.webp" alt="Washing Machine Cleaner & Descaler Powder">
+            <span class="qtip">Machine Cleaner Powder</span>
+            <span class="qhotspot-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg></span>
+          </a>
         </div>
         <div class="qbody">
           <h3>Laundry Care Box <span style="font-family:'Inter';font-weight:600;font-size:12px;color:var(--ink-2)">(3 products)</span></h3>
@@ -438,9 +470,21 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
       <div class="qcard">
         <span class="ribbon" style="background:var(--gold)">Biggest Saving &mdash; ₹696</span>
         <div class="qimg">
-          <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/KitchenCleanerWebsiteImages-01.webp" alt="">
-          <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/1lt_Website_Images_Floor_Cleaner-01.webp" alt="">
-          <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/WebsiteImagesHydratingHandwash-01.webp" alt="">
+          <a class="qhotspot" href="https://www.happi-planet.com/products/happi-planet-kitchen-cleaner-india-s-1st-foaming-formulation-for-less-scrubbing-500ml-suitable-for-stoves-chimneys-counter-tops-appliances-walls-cabinets-non-toxic-natural" target="_blank" rel="noopener" aria-label="View Kitchen Cleaner">
+            <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/KitchenCleanerWebsiteImages-01.webp" alt="Kitchen Cleaner">
+            <span class="qtip">Kitchen Cleaner</span>
+            <span class="qhotspot-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg></span>
+          </a>
+          <a class="qhotspot" href="https://www.happi-planet.com/products/eco-friendly-floor-cleaner-1l-pack" target="_blank" rel="noopener" aria-label="View Natural Herbal Floor Cleaner">
+            <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/1lt_Website_Images_Floor_Cleaner-01.webp" alt="Natural Herbal Floor Cleaner">
+            <span class="qtip">Herbal Floor Cleaner</span>
+            <span class="qhotspot-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg></span>
+          </a>
+          <a class="qhotspot" href="https://www.happi-planet.com/products/gentle-hydrating-liquid-handwash-midnight-oud-fragrance" target="_blank" rel="noopener" aria-label="View Hydrating Handwash Midnight Oud">
+            <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/WebsiteImagesHydratingHandwash-01.webp" alt="Hydrating Handwash Midnight Oud">
+            <span class="qtip">Handwash | Midnight Oud</span>
+            <span class="qhotspot-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg></span>
+          </a>
         </div>
         <div class="qbody">
           <h3>Complete Home <span style="font-family:'Inter';font-weight:600;font-size:12px;color:var(--ink-2)">(5 products)</span></h3>
