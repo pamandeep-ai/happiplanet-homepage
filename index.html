@@ -202,6 +202,11 @@ header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid 
 
 /* ============ FILTER CHIPS ============ */
 .chips{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;scrollbar-width:none;justify-content:flex-start;margin-bottom:18px}
+.bs-nudge{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:18px;text-align:center}
+.bs-nudge-txt{font-size:13px;font-weight:600;color:var(--teal-900);transition:color .2s}
+.bs-nudge-txt.hot{color:var(--gold)}
+.bs-nudge-track{width:100%;max-width:280px;height:5px;background:var(--bg-green);border-radius:999px;overflow:hidden;margin:8px auto 0}
+.bs-nudge-track span{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--green),var(--gold));border-radius:999px;transition:width .35s ease}
 @media(min-width:720px){.chips{justify-content:center}}
 .chips::-webkit-scrollbar{display:none}
 .chip{flex:0 0 auto;white-space:nowrap;padding:10px 18px;min-height:42px;border-radius:999px;border:1.5px solid var(--line);font-weight:600;font-size:13.5px;color:var(--teal-900);background:#fff}
@@ -595,6 +600,10 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
       <button class="chip" data-f="Home">Home</button>
       <button class="chip" data-f="Skin">Skin</button>
     </div>
+    <div class="bs-nudge" id="bsNudge">
+      <div class="bs-nudge-txt" id="bsNudgeTxt">Pick any 3 products and pay one flat price of ₹499 &mdash; instead of buying single.</div>
+      <div class="bs-nudge-track"><span id="bsNudgeFill"></span></div>
+    </div>
     <div class="grid" id="bsGrid"></div>
   </div>
 </section>
@@ -884,6 +893,29 @@ function updateCartUI(){
   }else{
     mtxt.innerHTML = `<b>Pick any 3, pay ₹499</b><span>Takes less than a minute</span>`;
     mco.textContent='Make Your Bundle';
+  }
+  const nudgeTxt = document.getElementById('bsNudgeTxt');
+  const nudgeFill = document.getElementById('bsNudgeFill');
+  if(nudgeTxt && nudgeFill){
+    if(count===0){
+      nudgeTxt.textContent = 'Pick any 3 products and pay one flat price of ₹499 — instead of buying single.';
+      nudgeTxt.classList.remove('hot');
+      nudgeFill.style.width = '0%';
+    }else if(count<3){
+      const left = 3-count;
+      nudgeTxt.innerHTML = `You've added <b>${count}</b> &mdash; just <b>${left} more</b> unlocks flat ₹499 pricing for 3!`;
+      nudgeTxt.classList.add('hot');
+      nudgeFill.style.width = Math.round((count/3)*100)+'%';
+    }else if(count<5){
+      const left = 5-count;
+      nudgeTxt.innerHTML = `3-pack pricing unlocked! Add <b>${left} more</b> for the best-value 5-pack at ₹799.`;
+      nudgeTxt.classList.add('hot');
+      nudgeFill.style.width = Math.round((count/5)*100)+'%';
+    }else{
+      nudgeTxt.innerHTML = `You've unlocked the best price &mdash; ₹799 for ${count} products. Nice one!`;
+      nudgeTxt.classList.add('hot');
+      nudgeFill.style.width = '100%';
+    }
   }
 }
 /* Sticky bar: rotating trust messages */
