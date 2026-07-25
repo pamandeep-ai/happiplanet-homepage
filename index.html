@@ -98,11 +98,13 @@ header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid 
 .hero-dots{position:absolute;left:0;right:0;bottom:14px;display:flex;gap:7px;justify-content:center;z-index:3}
 .hero-dots span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55);border:1px solid rgba(0,0,0,.08);transition:background .3s,transform .3s;cursor:pointer}
 .hero-dots span.active{background:var(--gold);transform:scale(1.3)}
-.hero-copy-center{text-align:center;padding:0;max-width:600px;margin:0 auto}
+.hero-copy-center{text-align:center;padding:14px 18px 4px;max-width:600px;margin:0 auto}
 @media(min-width:1080px){.hero-copy-center{padding:20px 18px 4px}}
 .hero-copy-center h1{font-size:clamp(24px,6vw,38px);font-weight:800}
 .hero-copy-center p{color:var(--ink-2);font-size:15px;margin-top:10px}
-.hero-cta{display:none;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
+.hero-caption{font-size:14px;font-weight:600;color:var(--teal-900);min-height:20px;opacity:1;transition:opacity .3s ease}
+.hero-caption.fade{opacity:0}
+.hero-cta{display:none;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:14px}
 @media(min-width:1080px){.hero-cta{display:flex}}
 
 /* ============ TRUST BAR ============ */
@@ -429,8 +431,9 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
     <div class="hero-dots" id="heroDots"></div>
   </div>
   <div class="wrap hero-copy-center">
+    <p class="hero-caption" id="heroCaption">100% plant-based cleaning, powered by nature &mdash; loved by 25 Lakh+ homes.</p>
     <div class="hero-cta">
-      <a class="btn-primary" href="#bundles">Make Your Bundle <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      <a class="btn-primary" href="#bestsellers" id="heroCtaBtn">Shop Best Sellers <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
     </div>
   </div>
 </section>
@@ -961,11 +964,19 @@ function updateCartUI(){
     }
   }
 }
-/* Hero carousel: auto-advance through the 3 banners */
+/* Hero carousel: auto-advance through the 3 banners, each with its own message + CTA */
 (function(){
   const slides = document.querySelectorAll('#heroCarousel .hero-slide');
   const dotsWrap = document.getElementById('heroDots');
+  const caption = document.getElementById('heroCaption');
+  const ctaBtn = document.getElementById('heroCtaBtn');
   if(!slides.length || !dotsWrap) return;
+  const SLIDE_INFO = [
+    {caption:'100% plant-based cleaning, powered by nature \u2014 loved by 25 Lakh+ homes.', ctaText:'Shop Best Sellers', ctaHref:'#bestsellers'},
+    {caption:'Our best-selling combos, pre-built to save you money on every wash.', ctaText:'Explore Bundles', ctaHref:'#bundles'},
+    {caption:'Pick any 3 products and pay a flat \u20b9499 \u2014 instant bundle savings.', ctaText:'Buy 3 @ \u20b9499', ctaHref:'https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/'}
+  ];
+  const arrowSvg = '<svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>';
   slides.forEach((_,i)=>{
     const d = document.createElement('span');
     if(i===0) d.classList.add('active');
@@ -974,12 +985,28 @@ function updateCartUI(){
   });
   const dots = dotsWrap.querySelectorAll('span');
   let idx = 0, timer;
+  function applyInfo(i){
+    const info = SLIDE_INFO[i];
+    if(!info) return;
+    if(caption){
+      caption.classList.add('fade');
+      setTimeout(()=>{
+        caption.textContent = info.caption;
+        caption.classList.remove('fade');
+      }, 220);
+    }
+    if(ctaBtn){
+      ctaBtn.href = info.ctaHref;
+      ctaBtn.innerHTML = info.ctaText + ' ' + arrowSvg;
+    }
+  }
   function goTo(i){
     slides[idx].classList.remove('active');
     dots[idx].classList.remove('active');
     idx = i;
     slides[idx].classList.add('active');
     dots[idx].classList.add('active');
+    applyInfo(idx);
     restart();
   }
   function next(){ goTo((idx+1) % slides.length); }
