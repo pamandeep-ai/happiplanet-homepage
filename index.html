@@ -162,6 +162,9 @@ header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid 
 .qbundles-heading p{color:var(--ink-2);font-size:13.5px;margin-top:5px}
 .qcard{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column;position:relative}
 .qcard .ribbon{position:absolute;top:12px;left:0;background:var(--teal-900);color:#fff;font-family:'Poppins';font-weight:800;font-size:12.5px;padding:5px 14px 5px 12px;border-radius:0 999px 999px 0;z-index:3;letter-spacing:.01em}
+.qcard .badge2{position:absolute;top:12px;right:12px;font-family:'Poppins';font-weight:800;font-size:11px;padding:5px 12px;border-radius:999px;z-index:3;color:#fff;letter-spacing:.02em}
+.qcard .badge2.popular{background:var(--gold)}
+.qcard .badge2.value{background:var(--green)}
 .qcard .qimg{background:linear-gradient(160deg,var(--bg-green) 0%,#fff 100%);display:flex;align-items:flex-start;gap:4px;padding:16px 10px 12px;justify-content:center}
 .qs-static .qcard:nth-child(2) .qimg{background:linear-gradient(160deg,#eef3ea 0%,#fff 100%)}
 .qs-static .qcard:nth-child(3) .qimg{background:linear-gradient(160deg,#faf1dd 0%,#fff 100%)}
@@ -239,6 +242,8 @@ header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid 
 .card .rev{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--ink-2)}
 .card .rev .stars{color:var(--gold)}
 .card .price{display:flex;align-items:baseline;gap:7px;margin-top:auto}
+.card .also-bundle{font-size:10.5px;font-weight:700;color:var(--green);display:block;margin-top:2px}
+.card .also-bundle:hover{color:var(--teal-700);text-decoration:underline}
 .card .price b{font-family:'Poppins';font-size:18px;color:var(--teal-900)}
 .card .price s{font-size:13px;color:#9aa}
 .card .add{margin-top:8px;background:var(--bg-green-2);color:var(--teal-900);font-weight:700;font-size:13.5px;padding:12px;min-height:44px;border-radius:9px;display:flex;align-items:center;justify-content:center;gap:6px;transition:.14s}
@@ -464,33 +469,38 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
   </div>
 </section>
 
-<!-- QUICK CATEGORY DISCOVERY -->
-<section class="sec tight" style="padding:8px 0">
+<!-- SHOP BY SOLUTION -->
+<section class="sec tight">
   <div class="wrap">
-    <div class="quicknav">
-      <a class="qn-pill" href="https://www.happi-planet.com/collections/kitchen" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8h16M6 8v12a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8M9 8V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"/></svg>
-        Kitchen
+    <div class="sec-head">
+      <div class="eyebrow">Shop by solution</div>
+      <h2>Tell us what you're fighting</h2>
+      <p>We'll point you to the right fix &mdash; and the bundle that solves it completely.</p>
+    </div>
+    <div class="prob-grid">
+      <a class="prob-card" href="#bundles">
+        <div class="pimg"><img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/WebsiteImagesLimeScale-01_7dde5639-eabb-439c-a335-dd2493db5827.webp" alt="Limescale"></div>
+        <h3>Limescale &amp; hard water</h3>
+        <p>Tap, sink &amp; faucet stains</p>
+        <span class="go">See the fix <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
       </a>
-      <a class="qn-pill" href="https://www.happi-planet.com/collections/laundry" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="6"/><circle cx="12" cy="13" r="2.4"/><path d="M8 5h8"/></svg>
-        Laundry
+      <a class="prob-card" href="#bundles">
+        <div class="pimg"><img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/KitchenCleanerWebsiteImages-01.webp" alt="Kitchen grease"></div>
+        <h3>Kitchen grease &amp; grime</h3>
+        <p>Countertops, hobs &amp; dishes</p>
+        <span class="go">See the fix <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
       </a>
-      <a class="qn-pill" href="https://www.happi-planet.com/collections/home" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7"/><path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"/></svg>
-        Home
+      <a class="prob-card" href="#bundles">
+        <div class="pimg"><img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/1lt_Website_Images_Laundry_Detergent-01.webp" alt="Laundry stains"></div>
+        <h3>Stubborn laundry stains</h3>
+        <p>Softer wash, no harsh smell</p>
+        <span class="go">See the fix <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
       </a>
-      <a class="qn-pill" href="https://www.happi-planet.com/collections/skin" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z"/></svg>
-        Skin
-      </a>
-      <a class="qn-pill" href="https://www.happi-planet.com/collections/bundles" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8L12 3 3 8m18 0-9 5m9-5v9l-9 5M3 8l9 5m-9-5v9l9 5"/></svg>
-        Starter Kits
-      </a>
-      <a class="qn-pill" href="https://www.happi-planet.com/collections/all" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        Shop All
+      <a class="prob-card" href="#bundles">
+        <div class="pimg"><img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/1lt_Website_Images_Toilet_Cleaner-01.webp" alt="Bathroom germs"></div>
+        <h3>Bathroom germs &amp; odour</h3>
+        <p>Toilet, tiles &amp; drains</p>
+        <span class="go">See the fix <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
       </a>
     </div>
   </div>
@@ -511,6 +521,7 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
     <div class="qs-static">
       <div class="qcard">
         <span class="ribbon">You Save ₹398</span>
+        <span class="badge2 popular">Most Popular</span>
         <div class="qimg">
           <div class="qstory-product">
             <a class="qhotspot" href="https://www.happi-planet.com/products/happi-planet-kitchen-cleaner-india-s-1st-foaming-formulation-for-less-scrubbing-500ml-suitable-for-stoves-chimneys-counter-tops-appliances-walls-cabinets-non-toxic-natural" target="_blank" rel="noopener" aria-label="View Kitchen Cleaner">
@@ -543,7 +554,7 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
           <h3>Kitchen Essentials <span style="font-family:'Inter';font-weight:600;font-size:12px;color:var(--ink-2)">(3 products)</span></h3>
           <div class="qmeta">Includes: Foaming Kitchen Cleaner, Dishwash Gel &amp; Tap Cleaner. Everything for a sparkling kitchen &mdash; no need to pick separately.</div>
           <div class="qprice"><b>₹499</b><s>₹897</s><span class="pct">Save ₹398</span></div>
-          <a class="qadd" href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/">Shop This Box <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a class="qadd" href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/">Shop Bundle <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </div>
       </div>
       <div class="qcard">
@@ -577,14 +588,15 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
           </div>
         </div>
         <div class="qbody">
-          <h3>Laundry Care Box <span style="font-family:'Inter';font-weight:600;font-size:12px;color:var(--ink-2)">(3 products)</span></h3>
+          <h3>Laundry Care Bundle <span style="font-family:'Inter';font-weight:600;font-size:12px;color:var(--ink-2)">(3 products)</span></h3>
           <div class="qmeta">Includes: Detergent, Fabric Conditioner &amp; Machine Cleaner Powder. Softer, fresher wash, all in one box.</div>
           <div class="qprice"><b>₹499</b><s>₹947</s><span class="pct">Save ₹448</span></div>
-          <a class="qadd" href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/">Shop This Box <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a class="qadd" href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/">Shop Bundle <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </div>
       </div>
       <div class="qcard">
         <span class="ribbon" style="background:var(--gold)">Biggest Saving &mdash; ₹696</span>
+        <span class="badge2 value">Best Value</span>
         <div class="qimg">
           <div class="qstory-product">
             <a class="qhotspot" href="https://www.happi-planet.com/products/happi-planet-kitchen-cleaner-india-s-1st-foaming-formulation-for-less-scrubbing-500ml-suitable-for-stoves-chimneys-counter-tops-appliances-walls-cabinets-non-toxic-natural" target="_blank" rel="noopener" aria-label="View Kitchen Cleaner">
@@ -614,21 +626,79 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
           </div>
         </div>
         <div class="qbody">
-          <h3>Complete Home <span style="font-family:'Inter';font-weight:600;font-size:12px;color:var(--ink-2)">(5 products)</span></h3>
+          <h3>Complete Home Bundle <span style="font-family:'Inter';font-weight:600;font-size:12px;color:var(--ink-2)">(5 products)</span></h3>
           <div class="qmeta">Includes: Kitchen Cleaner, Laundry Detergent, Floor Cleaner, Toilet Cleaner &amp; Handwash. Our biggest saving box.</div>
           <div class="qprice"><b>₹799</b><s>₹1,495</s><span class="pct">Save ₹696</span></div>
-          <a class="qadd" href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/">Shop This Box <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a class="qadd" href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/">Shop Bundle <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+      <div class="qcard">
+        <span class="ribbon">You Save ₹398</span>
+        <div class="qimg">
+          <div class="qstory-product">
+            <a class="qhotspot" href="https://www.happi-planet.com/products/non-toxic-toilet-cleaner-1l-pack" target="_blank" rel="noopener" aria-label="View Non-Toxic Toilet Cleaner">
+              <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/1lt_Website_Images_Toilet_Cleaner-01.webp" alt="Non-Toxic Toilet Cleaner">
+              <span class="qtip">Non-Toxic Toilet Cleaner</span>
+              <span class="qhotspot-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg></span>
+            </a>
+            <p class="qstory-tag">Kills 99.9% germs</p>
+          </div>
+          <span class="qstory-plus">+</span>
+          <div class="qstory-product">
+            <a class="qhotspot" href="https://www.happi-planet.com/products/tap-cleaner-lime-scale-remover" target="_blank" rel="noopener" aria-label="View Tap Cleaner & Limescale Remover">
+              <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/WebsiteImagesLimeScale-01_7dde5639-eabb-439c-a335-dd2493db5827.webp" alt="Tap Cleaner & Limescale Remover">
+              <span class="qtip">Tap Cleaner & Limescale Remover</span>
+              <span class="qhotspot-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg></span>
+            </a>
+            <p class="qstory-tag">Melts hard water stains</p>
+          </div>
+          <span class="qstory-plus">+</span>
+          <div class="qstory-product">
+            <a class="qhotspot" href="https://www.happi-planet.com/products/magic-eraser" target="_blank" rel="noopener" aria-label="View Magic Eraser">
+              <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/WebsiteImagesMagicEraser-01_82fc4c35-3fd2-4612-83f8-ab2018a141d6.webp" alt="Magic Eraser">
+              <span class="qtip">Magic Eraser</span>
+              <span class="qhotspot-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg></span>
+            </a>
+            <p class="qstory-tag">Scrubs away soap scum</p>
+          </div>
+        </div>
+        <div class="qbody">
+          <h3>Bathroom Deep Clean Bundle <span style="font-family:'Inter';font-weight:600;font-size:12px;color:var(--ink-2)">(3 products)</span></h3>
+          <div class="qmeta">Includes: Toilet Cleaner, Tap Cleaner &amp; Magic Eraser. A complete bathroom refresh in one box.</div>
+          <div class="qprice"><b>₹499</b><s>₹897</s><span class="pct">Save ₹398</span></div>
+          <a class="qadd" href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/">Shop Bundle <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+      <div class="qcard">
+        <span class="ribbon">You Save ₹249</span>
+        <div class="qimg">
+          <div class="qstory-product">
+            <a class="qhotspot" href="https://www.happi-planet.com/products/tap-cleaner-lime-scale-remover" target="_blank" rel="noopener" aria-label="View Tap Cleaner & Limescale Remover">
+              <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/WebsiteImagesLimeScale-01_7dde5639-eabb-439c-a335-dd2493db5827.webp" alt="Tap Cleaner & Limescale Remover">
+              <span class="qtip">Tap Cleaner & Limescale Remover</span>
+              <span class="qhotspot-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg></span>
+            </a>
+            <p class="qstory-tag">Melts hard water stains</p>
+          </div>
+          <span class="qstory-plus">+</span>
+          <div class="qstory-product">
+            <a class="qhotspot" href="https://www.happi-planet.com/products/non-toxic-toilet-cleaner-1l-pack" target="_blank" rel="noopener" aria-label="View Non-Toxic Toilet Cleaner">
+              <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/1lt_Website_Images_Toilet_Cleaner-01.webp" alt="Non-Toxic Toilet Cleaner">
+              <span class="qtip">Non-Toxic Toilet Cleaner</span>
+              <span class="qhotspot-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg></span>
+            </a>
+            <p class="qstory-tag">Fights limescale in the bowl</p>
+          </div>
+        </div>
+        <div class="qbody">
+          <h3>Hard Water Solution Kit <span style="font-family:'Inter';font-weight:600;font-size:12px;color:var(--ink-2)">(2 products)</span></h3>
+          <div class="qmeta">Includes: Tap Cleaner &amp; Toilet Cleaner. A quick, focused fix for hard water stains across the home.</div>
+          <div class="qprice"><b>₹349</b><s>₹598</s><span class="pct">Save ₹249</span></div>
+          <a class="qadd" href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/">Shop Bundle <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </div>
       </div>
     </div>
-    <p style="text-align:center;font-size:12.5px;color:var(--ink-2);margin-top:10px">Tapping "Shop This Box" opens our easy bundle picker with these products already added &mdash; you can still swap anything before you pay.</p>
-    <div class="bundle-cta">
-      <div>
-        <h3>Want to pick your own instead?</h3>
-        <p>Choose any 2, 3 or 5 products yourself. You'll still get one simple price and free delivery &mdash; no promo code needed.</p>
-      </div>
-      <a class="btn-primary" href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/">Make My Own Box <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-    </div>
+    <p style="text-align:center;font-size:12.5px;color:var(--ink-2);margin-top:10px">Tapping "Shop Bundle" opens our easy bundle picker with these products already added &mdash; you can still swap anything before you pay.</p>
   </div>
 </section>
 
@@ -651,6 +721,148 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
       <div class="bs-nudge-track"><span id="bsNudgeFill"></span></div>
     </div>
     <div class="grid" id="bsGrid"></div>
+  </div>
+</section>
+
+<!-- WHY BUNDLES ARE A SMARTER CHOICE -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The smarter way to shop</div>
+      <h2>Why bundles beat buying single</h2>
+    </div>
+    <div class="usp-grid">
+      <div class="usp">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <b>Save up to 45%</b>
+        <span>Vs. buying the same products separately</span>
+      </div>
+      <div class="usp">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <b>One flat price</b>
+        <span>No calculators, no comparing carts</span>
+      </div>
+      <div class="usp">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.9 6.26 6.85.6-5.18 4.55 1.55 6.7L12 17.9 5.88 20.7l1.55-6.7L2.25 8.86l6.85-.6z"/></svg></div>
+        <b>Curated by experts</b>
+        <span>Products picked to work well together</span>
+      </div>
+      <div class="usp">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 5h13v10H1z"/><path d="M14 8h4l3 3v4h-7z"/><circle cx="5" cy="17.5" r="1.7"/><circle cx="17.5" cy="17.5" r="1.7"/></svg></div>
+        <b>Free shipping always</b>
+        <span>Included on every bundle, all India</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUNDLE CATEGORIES -->
+<section class="sec" style="background:var(--bg-green)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Bundle categories</div>
+      <h2>Find the right bundle for you</h2>
+    </div>
+    <div class="cat-grid">
+      <a class="cat-card" href="#bundles">
+        <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/KitchenCleanerWebsiteImages-01.webp" alt="Kitchen Bundle">
+        <div class="lb"><b>Kitchen Bundle</b><span>Grease, dishes &amp; more</span></div>
+      </a>
+      <a class="cat-card" href="#bundles">
+        <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/1lt_Website_Images_Toilet_Cleaner-01.webp" alt="Bathroom Bundle">
+        <div class="lb"><b>Bathroom Bundle</b><span>Deep clean &amp; disinfect</span></div>
+      </a>
+      <a class="cat-card" href="#bundles">
+        <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/1lt_Website_Images_Laundry_Detergent-01.webp" alt="Laundry Bundle">
+        <div class="lb"><b>Laundry Bundle</b><span>Softer, fresher wash</span></div>
+      </a>
+      <a class="cat-card" href="#bundles">
+        <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/WebsiteImagesLimeScale-01_7dde5639-eabb-439c-a335-dd2493db5827.webp" alt="Hard Water Bundle">
+        <div class="lb"><b>Hard Water Bundle</b><span>Melt away limescale</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP BY ROOM -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Shop by room</div>
+      <h2>Sorted, room by room</h2>
+      <p>Everything a space needs, curated together.</p>
+    </div>
+    <div class="room-grid">
+      <a class="room-card" href="#bestsellers">
+        <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/KitchenCleanerWebsiteImages-01.webp" alt="Kitchen">
+        <div class="lb"><b>Kitchen</b><span>Cleaner, dishwash &amp; more</span></div>
+      </a>
+      <a class="room-card" href="#bestsellers">
+        <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/1lt_Website_Images_Toilet_Cleaner-01.webp" alt="Bathroom">
+        <div class="lb"><b>Bathroom</b><span>Toilet &amp; limescale care</span></div>
+      </a>
+      <a class="room-card" href="#bestsellers">
+        <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/1lt_Website_Images_Laundry_Detergent-01.webp" alt="Laundry room">
+        <div class="lb"><b>Laundry room</b><span>Detergent, conditioner &amp; more</span></div>
+      </a>
+      <a class="room-card" href="#bestsellers">
+        <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/Website_Images_Metal_Cleaner-01.webp" alt="Living room">
+        <div class="lb"><b>Living room</b><span>Floor &amp; metal care</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BUILD YOUR OWN BUNDLE -->
+<section class="sec" style="background:var(--bg-green)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Prefer to mix your own?</div>
+      <h2>Build Your Own Bundle</h2>
+    </div>
+    <div class="bundle-cta">
+      <div>
+        <h3>Pick any 2, 3 or 5 products</h3>
+        <p>Choose whatever combination works for your home. You'll still get one simple price and free delivery &mdash; no promo code needed.</p>
+      </div>
+      <a class="btn-primary" href="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/">Make My Own Box <svg class="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec revs" id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Real homes, real results</div>
+      <h2>What people are saying</h2>
+    </div>
+    <div class="revgrid">
+      <div class="rcard">
+        <div class="stars">★★★★★</div>
+        <p>"Switched my whole kitchen to Happi Planet. The bundle made it so affordable, and the foaming kitchen cleaner is genuinely better than my old chemical one."</p>
+        <div class="who">
+          <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/KitchenCleanerWebsiteImages-01.webp" alt="">
+          <div><b>Ananya R.</b><span>Bengaluru, Verified buyer</span></div>
+        </div>
+      </div>
+      <div class="rcard">
+        <div class="stars">★★★★★</div>
+        <p>"Built the 5-pack and saved a ton. No harsh smell, safe around my toddler. This is the way cleaning products should be."</p>
+        <div class="who">
+          <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/1lt_Website_Images_Laundry_Detergent-01.webp" alt="">
+          <div><b>Karthik M.</b><span>Hyderabad, Verified buyer</span></div>
+        </div>
+      </div>
+      <div class="rcard">
+        <div class="stars">★★★★★</div>
+        <p>"Love that I can mix laundry, kitchen and skin in one bundle. Ordered the Complete Home box, saved over ₹400 and my house smells amazing."</p>
+        <div class="who">
+          <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/WebsiteImagesHydratingHandwash-01.webp" alt="">
+          <div><b>Priya S.</b><span>Mumbai, Verified buyer</span></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -728,42 +940,6 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
       <div class="handle" id="baHandle"></div>
     </div>
     <p class="ba-cap">Drag to compare &mdash; Tap Cleaner &amp; Limescale Remover in action.</p>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="sec revs" id="reviews">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Real homes, real results</div>
-      <h2>What people are saying</h2>
-    </div>
-    <div class="revgrid">
-      <div class="rcard">
-        <div class="stars">★★★★★</div>
-        <p>"Switched my whole kitchen to Happi Planet. The bundle made it so affordable, and the foaming kitchen cleaner is genuinely better than my old chemical one."</p>
-        <div class="who">
-          <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/KitchenCleanerWebsiteImages-01.webp" alt="">
-          <div><b>Ananya R.</b><span>Bengaluru, Verified buyer</span></div>
-        </div>
-      </div>
-      <div class="rcard">
-        <div class="stars">★★★★★</div>
-        <p>"Built the 5-pack and saved a ton. No harsh smell, safe around my toddler. This is the way cleaning products should be."</p>
-        <div class="who">
-          <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/1lt_Website_Images_Laundry_Detergent-01.webp" alt="">
-          <div><b>Karthik M.</b><span>Hyderabad, Verified buyer</span></div>
-        </div>
-      </div>
-      <div class="rcard">
-        <div class="stars">★★★★★</div>
-        <p>"Love that I can mix laundry, kitchen and skin in one bundle. Ordered the Complete Home box, saved over ₹400 and my house smells amazing."</p>
-        <div class="who">
-          <img src="https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/WebsiteImagesHydratingHandwash-01.webp" alt="">
-          <div><b>Priya S.</b><span>Mumbai, Verified buyer</span></div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -903,6 +1079,7 @@ function renderGrid(filter){
         <div class="rname">${p.name}</div>
         <div class="rev"><span class="stars">★</span> ${p.rating} (${p.rev})</div>
         <div class="price"><b>₹${p.price}</b><s>₹${p.mrp}</s></div>
+        <a href="#bundles" class="also-bundle">Also in a bundle &mdash; save more</a>
         <button type="button" class="add${inCart?' in':''}" onclick="toggleCart('${p.id}','${p.name.replace(/'/g,"\\'")}',${p.price},this)">
           ${inCart?`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Added`:'Add to Bundle'}
         </button>
