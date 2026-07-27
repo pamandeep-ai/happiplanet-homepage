@@ -283,6 +283,10 @@ header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid 
 /* ============ WHY / USP ============ */
 .usp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 @media(min-width:720px){.usp-grid{grid-template-columns:repeat(4,1fr)}}
+.promise-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:900px;margin:0 auto}
+@media(min-width:720px){.promise-grid{grid-template-columns:repeat(5,1fr)}}
+.promise-grid img{width:100%;height:auto;border-radius:14px;transition:transform .2s}
+.promise-grid img:hover{transform:translateY(-3px)}
 .usp{text-align:center;padding:18px 10px}
 .usp .ic{width:56px;height:56px;border-radius:50%;background:var(--bg-green);display:grid;place-items:center;margin:0 auto 12px;color:var(--teal-700)}
 .usp .ic svg{width:26px;height:26px}
@@ -884,30 +888,15 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
 <section class="sec">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Why Happi Planet</div>
+      <div class="eyebrow">Our promise</div>
       <h2>Cleaning that's kind &mdash; to your home and the planet</h2>
     </div>
-    <div class="usp-grid">
-      <div class="usp">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 20C4 11.2 11.2 4 20 4c0 8.8-7.2 16-16 16z"/></svg></div>
-        <b>100% plant-based</b>
-        <span>No harsh chemicals, ever</span>
-      </div>
-      <div class="usp">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z"/></svg></div>
-        <b>Family &amp; pet safe</b>
-        <span>Gentle enough for daily use</span>
-      </div>
-      <div class="usp">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h11"/></svg></div>
-        <b>Biodegradable packaging</b>
-        <span>Kinder to the planet</span>
-      </div>
-      <div class="usp">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 5h13v10H1z"/><path d="M14 8h4l3 3v4h-7z"/><circle cx="5" cy="17.5" r="1.7"/><circle cx="17.5" cy="17.5" r="1.7"/></svg></div>
-        <b>Made &amp; shipped in India</b>
-        <span>Free delivery on bundles</span>
-      </div>
+    <div class="promise-grid">
+      <img src="https://www.happi-planet.com/cdn/shop/files/Text_Boxes-01.png" alt="Happi Planet brand promise" loading="lazy">
+      <img src="https://www.happi-planet.com/cdn/shop/files/Text_Boxes-02.png" alt="Happi Planet brand promise" loading="lazy">
+      <img src="https://www.happi-planet.com/cdn/shop/files/Text_Boxes-03.png" alt="Happi Planet brand promise" loading="lazy">
+      <img src="https://www.happi-planet.com/cdn/shop/files/Text_Boxes-04.png" alt="Happi Planet brand promise" loading="lazy">
+      <img src="https://www.happi-planet.com/cdn/shop/files/Text_Boxes-05.png" alt="Happi Planet brand promise" loading="lazy">
     </div>
   </div>
 </section>
