@@ -981,7 +981,7 @@ function renderGrid(filter){
         <div class="price"><b>₹${p.price}</b><s>₹${p.mrp}</s></div>
         <div class="qtax" style="margin-bottom:2px">Inclusive of all taxes</div>
         <a href="#bundles" class="also-bundle">Also in a bundle &mdash; save more</a>
-        <button type="button" class="add${inCart?' in':''}" onclick="toggleCart('${p.id}','${p.name.replace(/'/g,"\\'")}',${p.price},'${p.url}',this)">
+        <button type="button" class="add${inCart?' in':''}" onclick="toggleCart('${p.id}','${p.name.replace(/'/g,"\\'")}',${p.price},${p.mrp},'${p.url}',this)">
           ${inCart?`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Added`:'Add to Cart'}
         </button>
         <a href="${p.url}" target="_blank" rel="noopener" class="buy-single">Just want this one? Buy it directly &rarr;</a>
@@ -989,14 +989,14 @@ function renderGrid(filter){
     </div>`;
   }).join('');
 }
-function toggleCart(id,name,price,url,btnEl){
+function toggleCart(id,name,price,mrp,url,btnEl){
   const idx=cart.findIndex(c=>c.id===id);
   if(idx>-1){
     cart.splice(idx,1);
     btnEl.classList.remove('in');
     btnEl.innerHTML='Add to Cart';
   }else{
-    cart.push({id,name,price,url});
+    cart.push({id,name,price,mrp,url});
     btnEl.classList.add('in');
     btnEl.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Added';
   }
@@ -1007,17 +1007,19 @@ function updateCartUI(){
   document.querySelectorAll('.cart-count').forEach(el=>el.textContent=count);
   const mtxt=document.querySelector('.mbar .mtxt');
   const mco=document.querySelector('.mbar .mco');
-  if(count===1){
-    const only = cart[0];
-    mtxt.innerHTML = `<b>1 item selected &middot; ₹${only.price}</b><span>Buying just this? Tap to check out this item</span>`;
-    mco.textContent='Buy This Item';
-    mco.href = only.url || 'https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/';
-  }else if(count>1){
+  if(count>0 && count<3){
     const total=cart.reduce((s,c)=>s+c.price,0);
-    const away3 = 3-count, away5 = 5-count;
-    let hint = 'Free shipping included';
-    if(away3>0) hint = `Add ${away3} more for 3-pack pricing`;
-    else if(away5>0) hint = `Add ${away5} more for 5-pack pricing`;
+    const avgMrp = 299;
+    const need = 3-count;
+    const estMrpTotal = cart.reduce((s,c)=>s+(c.mrp||avgMrp),0) + need*avgMrp;
+    const estSavings = Math.max(0, estMrpTotal - 499);
+    mtxt.innerHTML = `<b>${count} item${count>1?'s':''} added &middot; ₹${total}</b><span>Add ${need} more &amp; save up to ₹${estSavings}!</span>`;
+    mco.textContent = `Add ${need} More`;
+    mco.href = 'https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/';
+  }else if(count>=3){
+    const total=cart.reduce((s,c)=>s+c.price,0);
+    const away5 = 5-count;
+    const hint = away5>0 ? `Add ${away5} more for 5-pack pricing` : 'Free shipping included';
     mtxt.innerHTML = `<b>${count} items added &middot; ₹${total}</b><span>${hint}</span>`;
     mco.textContent='Continue to Bundle';
     mco.href = 'https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/';
