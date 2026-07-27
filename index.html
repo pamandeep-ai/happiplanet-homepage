@@ -1007,7 +1007,7 @@ function renderGrid(filter){
         <div class="qtax" style="margin-bottom:2px">Inclusive of all taxes</div>
         <a href="#bundles" class="also-bundle">Also in a bundle &mdash; save more</a>
         <button type="button" class="add${inCart?' in':''}" onclick="toggleCart('${p.id}','${p.name.replace(/'/g,"\\'")}',${p.price},this)">
-          ${inCart?`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Added`:'Add to Bundle'}
+          ${inCart?`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Added`:'Add to Cart'}
         </button>
       </div>
     </div>`;
@@ -1018,7 +1018,7 @@ function toggleCart(id,name,price,btnEl){
   if(idx>-1){
     cart.splice(idx,1);
     btnEl.classList.remove('in');
-    btnEl.innerHTML='Add to Bundle';
+    btnEl.innerHTML='Add to Cart';
   }else{
     cart.push({id,name,price});
     btnEl.classList.add('in');
