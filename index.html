@@ -525,12 +525,6 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
       <h3>Best Selling Combos</h3>
       <p>Swipe to explore our best-selling combos &mdash; each one pre-built to save you money.</p>
     </div>
-    <span id="bestsellers" class="anchor-offset"></span>
-    <div class="shop-toggle" id="shopToggle">
-      <button type="button" class="toggle-btn" data-panel="bestsellers">Bestsellers starting @ ₹149</button>
-      <button type="button" class="toggle-btn active" data-panel="combos">Combos</button>
-    </div>
-    <div class="toggle-panel" id="panelCombos">
     <div class="qs-static">
       <div class="qcard">
         <span class="ribbon">You Save ₹398</span>
@@ -717,25 +711,30 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
       </div>
     </div>
     <p style="text-align:center;font-size:12.5px;color:var(--ink-2);margin-top:10px">Tapping "Shop Bundle" opens our easy bundle picker with these products already added &mdash; you can still swap anything before you pay.</p>
-    </div>
-    <div class="toggle-panel" id="panelBestsellers" style="display:none">
-      <div class="chips">
-        <button class="chip active" data-f="all">All</button>
-        <button class="chip" data-f="Kitchen">Kitchen</button>
-        <button class="chip" data-f="Laundry">Laundry</button>
-        <button class="chip" data-f="Home">Home</button>
-        <button class="chip" data-f="Skin">Skin</button>
-      </div>
-      <div class="bs-nudge" id="bsNudge">
-        <div class="bs-nudge-txt" id="bsNudgeTxt">Pick any 3 products and pay one flat price of ₹499 &mdash; instead of buying single.</div>
-        <div class="bs-nudge-track"><span id="bsNudgeFill"></span></div>
-      </div>
-      <div class="grid" id="bsGrid"></div>
-    </div>
   </div>
 </section>
 
-
+<!-- BEST SELLERS -->
+<section class="sec" id="bestsellers" style="background:var(--bg-green)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Fan favourites</div>
+      <h2>Best sellers, loved by 50,000+ homes</h2>
+    </div>
+    <div class="chips">
+      <button class="chip active" data-f="all">All</button>
+      <button class="chip" data-f="Kitchen">Kitchen</button>
+      <button class="chip" data-f="Laundry">Laundry</button>
+      <button class="chip" data-f="Home">Home</button>
+      <button class="chip" data-f="Skin">Skin</button>
+    </div>
+    <div class="bs-nudge" id="bsNudge">
+      <div class="bs-nudge-txt" id="bsNudgeTxt">Pick any 3 products and pay one flat price of ₹499 &mdash; instead of buying single.</div>
+      <div class="bs-nudge-track"><span id="bsNudgeFill"></span></div>
+    </div>
+    <div class="grid" id="bsGrid"></div>
+  </div>
+</section>
 
 <!-- BUNDLE CATEGORIES -->
 <section class="sec" style="background:var(--bg-green)">
@@ -1196,30 +1195,6 @@ function updateCartUI(){
 
 renderGrid('all');
 
-/* Bestsellers / Combos toggle switcher */
-(function(){
-  const toggleWrap = document.getElementById('shopToggle');
-  const panelCombos = document.getElementById('panelCombos');
-  const panelBS = document.getElementById('panelBestsellers');
-  if(!toggleWrap || !panelCombos || !panelBS) return;
-  const btns = toggleWrap.querySelectorAll('.toggle-btn');
-  function activate(name){
-    btns.forEach(b=>b.classList.toggle('active', b.dataset.panel===name));
-    panelCombos.style.display = name==='combos' ? '' : 'none';
-    panelBS.style.display = name==='bestsellers' ? '' : 'none';
-  }
-  btns.forEach(b=>{
-    b.addEventListener('click', ()=>activate(b.dataset.panel));
-  });
-  // Deep-link support: any link to #bestsellers should reveal that panel
-  document.querySelectorAll('a[href="#bestsellers"]').forEach(a=>{
-    a.addEventListener('click', ()=>activate('bestsellers'));
-  });
-  if(window.location.hash === '#bestsellers') activate('bestsellers');
-  window.addEventListener('hashchange', ()=>{
-    if(window.location.hash === '#bestsellers') activate('bestsellers');
-  });
-})();
 updateCartUI();
 
 /* Reveal sticky bundle CTA only after the hero (first screen) has been scrolled past */
