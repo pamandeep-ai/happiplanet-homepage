@@ -92,8 +92,8 @@ header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid 
 
 /* ============ HERO ============ */
 .hero{position:relative;background:#fff}
-.hero-img-full{width:100%;position:relative;aspect-ratio:1354/599;max-height:80vh;overflow:hidden;background:var(--bg-green)}
-.hero-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s ease;display:block}
+.hero-img-full{width:100%;position:relative;aspect-ratio:2.4/1;overflow:hidden;background:var(--bg-green)}
+.hero-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transition:opacity 1s ease;display:block}
 .hero-slide.active{opacity:1}
 .hero-dots{position:absolute;left:0;right:0;bottom:14px;display:flex;gap:7px;justify-content:center;z-index:3}
 .hero-dots span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55);border:1px solid rgba(0,0,0,.08);transition:background .3s,transform .3s;cursor:pointer}
@@ -1088,26 +1088,15 @@ function updateCartUI(){
       ctaBtn.innerHTML = info.ctaText + ' ' + arrowSvg;
     }
   }
-  const carousel = document.getElementById('heroCarousel');
-  const SLIDE_RATIOS = [599/1354, 887/1774, 600/1920]; // height/width for each banner
-  function setHeroHeight(){
-    if(!carousel) return;
-    const ratio = SLIDE_RATIOS[idx] || SLIDE_RATIOS[0];
-    const w = carousel.offsetWidth;
-    if(w>0) carousel.style.height = Math.round(w*ratio) + 'px';
-  }
-  window.addEventListener('resize', setHeroHeight);
   function goTo(i){
     slides[idx].classList.remove('active');
     dots[idx].classList.remove('active');
     idx = i;
     slides[idx].classList.add('active');
     dots[idx].classList.add('active');
-    setHeroHeight();
     applyInfo(idx);
     restart();
   }
-  setHeroHeight();
   function next(){ goTo((idx+1) % slides.length); }
   function restart(){
     clearInterval(timer);
