@@ -239,16 +239,19 @@ header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid 
 @media(min-width:1080px){.grid{grid-template-columns:repeat(4,1fr)}}
 .card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;display:flex;flex-direction:column;transition:.16s;position:relative}
 .card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
-.card .imgwrap{position:relative;aspect-ratio:1/1;overflow:hidden;background:#f4f7f4}
+.card .imgwrap{position:relative;aspect-ratio:1/1;overflow:hidden;background:#f4f7f4;display:block}
 .card .imgwrap img{width:100%;height:100%;object-fit:cover}
 .card .badge{position:absolute;top:8px;left:8px;font-size:10.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:6px;color:#fff;z-index:2;background:var(--teal-700)}
 .card .savetag{position:absolute;top:8px;right:8px;background:var(--gold);color:#fff;font-weight:800;font-size:11px;padding:4px 8px;border-radius:6px;z-index:2}
 .card .cbody{padding:11px 12px 12px;display:flex;flex-direction:column;gap:5px;flex:1}
-.card .rname{font-weight:600;font-size:13.5px;line-height:1.25;min-height:34px}
+.card .rname{font-weight:600;font-size:13.5px;line-height:1.25;min-height:34px;color:var(--ink);display:block}
+.card .rname:hover{color:var(--teal-700)}
 .card .rev{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--ink-2)}
 .card .rev .stars{color:var(--gold)}
 .card .price{display:flex;align-items:baseline;gap:7px;margin-top:auto}
 .card .also-bundle{font-size:10.5px;font-weight:700;color:var(--green);display:block;margin-top:2px}
+.card .buy-single{font-size:10.5px;font-weight:600;color:var(--ink-2);display:block;margin-top:4px;text-align:center}
+.card .buy-single:hover{color:var(--teal-700);text-decoration:underline}
 .card .also-bundle:hover{color:var(--teal-700);text-decoration:underline}
 .card .price b{font-family:'Poppins';font-size:18px;color:var(--teal-900)}
 .card .price s{font-size:13px;color:#9aa}
@@ -947,20 +950,20 @@ footer{background:var(--teal-900);color:#cfe3df;padding:34px 0 30px}
 <script>
 const BASE='https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/img/';
 const PRODUCTS=[
-  {id:'kitchen', name:'Foaming Kitchen Cleaner', img:'KitchenCleanerWebsiteImages-01.webp', price:200, mrp:299, rev:573, rating:4.9, cat:'Kitchen', badge:'BEST SELLER'},
-  {id:'detergent', name:'Natural Laundry Detergent', img:'1lt_Website_Images_Laundry_Detergent-01.webp', price:249, mrp:299, rev:215, rating:4.8, cat:'Laundry', badge:'BEST SELLER'},
-  {id:'floor', name:'Herbal Floor Cleaner', img:'1lt_Website_Images_Floor_Cleaner-01.webp', price:249, mrp:299, rev:156, rating:4.8, cat:'Home', badge:'BEST SELLER'},
-  {id:'dishwash', name:'Dishwash Liquid Gel', img:'WebsiteImages-01.webp', price:149, mrp:299, rev:88, rating:4.7, cat:'Kitchen', badge:'DEAL'},
-  {id:'copper', name:'Copper, Bronze & Brass Cleaner', img:'Website_Images_Metal_Cleaner-01.webp', price:200, mrp:299, rev:272, rating:4.9, cat:'Home'},
-  {id:'limescale', name:'Tap Cleaner & Limescale Remover', img:'WebsiteImagesLimeScale-01_7dde5639-eabb-439c-a335-dd2493db5827.webp', price:200, mrp:299, rev:8, rating:4.6, cat:'Kitchen'},
-  {id:'toilet', name:'Non-Toxic Toilet Cleaner', img:'1lt_Website_Images_Toilet_Cleaner-01.webp', price:229, mrp:299, rev:14, rating:4.7, cat:'Home'},
-  {id:'fabric', name:'Natural Fabric Conditioner', img:'FabricConditioner2.webp', price:279, mrp:349, rev:97, rating:4.8, cat:'Laundry'},
-  {id:'oud', name:'Hydrating Handwash | Midnight Oud', img:'WebsiteImagesHydratingHandwash-01.webp', price:249, mrp:299, rev:46, rating:4.9, cat:'Skin', badge:'NEW'},
-  {id:'ocean', name:'Hydrating Handwash | Ocean Breeze', img:'WebsiteImagesHydratingHandwash-08.webp', price:99, mrp:299, rev:69, rating:4.8, cat:'Skin', badge:'DEAL'},
-  {id:'powder', name:'Washing Machine Cleaner Powder', img:'WebsiteImagesPowder-01.webp', price:200, mrp:299, rev:34, rating:4.7, cat:'Laundry'},
-  {id:'eraser', name:'Magic Eraser', img:'WebsiteImagesMagicEraser-01_82fc4c35-3fd2-4612-83f8-ab2018a141d6.webp', price:200, mrp:299, rev:120, rating:4.9, cat:'Home'},
+  {id:'kitchen', name:'Foaming Kitchen Cleaner', img:'KitchenCleanerWebsiteImages-01.webp', price:200, mrp:299, rev:573, rating:4.9, cat:'Kitchen', badge:'BEST SELLER', url:'https://www.happi-planet.com/products/happi-planet-kitchen-cleaner-india-s-1st-foaming-formulation-for-less-scrubbing-500ml-suitable-for-stoves-chimneys-counter-tops-appliances-walls-cabinets-non-toxic-natural'},
+  {id:'detergent', name:'Natural Laundry Detergent', img:'1lt_Website_Images_Laundry_Detergent-01.webp', price:249, mrp:299, rev:215, rating:4.8, cat:'Laundry', badge:'BEST SELLER', url:'https://www.happi-planet.com/products/eco-friendly-laundry-detergent-1l-pack'},
+  {id:'floor', name:'Herbal Floor Cleaner', img:'1lt_Website_Images_Floor_Cleaner-01.webp', price:249, mrp:299, rev:156, rating:4.8, cat:'Home', badge:'BEST SELLER', url:'https://www.happi-planet.com/products/eco-friendly-floor-cleaner-1l-pack'},
+  {id:'dishwash', name:'Dishwash Liquid Gel', img:'WebsiteImages-01.webp', price:149, mrp:299, rev:88, rating:4.7, cat:'Kitchen', badge:'DEAL', url:'https://www.happi-planet.com/products/organic-and-natural-dishwash-liquid-pack-of-1l'},
+  {id:'copper', name:'Copper, Bronze & Brass Cleaner', img:'Website_Images_Metal_Cleaner-01.webp', price:200, mrp:299, rev:272, rating:4.9, cat:'Home', url:'https://www.happi-planet.com/products/copper-bronze-brass-cleaner'},
+  {id:'limescale', name:'Tap Cleaner & Limescale Remover', img:'WebsiteImagesLimeScale-01_7dde5639-eabb-439c-a335-dd2493db5827.webp', price:200, mrp:299, rev:8, rating:4.6, cat:'Kitchen', url:'https://www.happi-planet.com/products/tap-cleaner-lime-scale-remover'},
+  {id:'toilet', name:'Non-Toxic Toilet Cleaner', img:'1lt_Website_Images_Toilet_Cleaner-01.webp', price:229, mrp:299, rev:14, rating:4.7, cat:'Home', url:'https://www.happi-planet.com/products/non-toxic-toilet-cleaner-1l-pack'},
+  {id:'fabric', name:'Natural Fabric Conditioner', img:'FabricConditioner2.webp', price:279, mrp:349, rev:97, rating:4.8, cat:'Laundry', url:'https://www.happi-planet.com/products/eco-friendly-fabric-conditioner-1l-pack'},
+  {id:'oud', name:'Hydrating Handwash | Midnight Oud', img:'WebsiteImagesHydratingHandwash-01.webp', price:249, mrp:299, rev:46, rating:4.9, cat:'Skin', badge:'NEW', url:'https://www.happi-planet.com/products/gentle-hydrating-liquid-handwash-midnight-oud-fragrance'},
+  {id:'ocean', name:'Hydrating Handwash | Ocean Breeze', img:'WebsiteImagesHydratingHandwash-08.webp', price:99, mrp:299, rev:69, rating:4.8, cat:'Skin', badge:'DEAL', url:'https://www.happi-planet.com/collections/skin'},
+  {id:'powder', name:'Washing Machine Cleaner Powder', img:'WebsiteImagesPowder-01.webp', price:200, mrp:299, rev:34, rating:4.7, cat:'Laundry', url:'https://www.happi-planet.com/products/washing-machine-cleaner-descaler-powder'},
+  {id:'eraser', name:'Magic Eraser', img:'WebsiteImagesMagicEraser-01_82fc4c35-3fd2-4612-83f8-ab2018a141d6.webp', price:200, mrp:299, rev:120, rating:4.9, cat:'Home', url:'https://www.happi-planet.com/products/magic-eraser'},
 ];
-let cart=[]; // {id, name, price}
+let cart=[]; // {id, name, price, url}
 function pct(p,m){return Math.round((1-p/m)*100)}
 function renderGrid(filter){
   const el=document.getElementById('bsGrid');
@@ -971,28 +974,29 @@ function renderGrid(filter){
     <div class="card">
       ${p.badge?`<span class="badge">${p.badge}</span>`:''}
       <span class="savetag">-${pct(p.price,p.mrp)}%</span>
-      <div class="imgwrap"><img src="${BASE}${p.img}" alt="${p.name}" loading="lazy"></div>
+      <a href="${p.url}" target="_blank" rel="noopener" class="imgwrap"><img src="${BASE}${p.img}" alt="${p.name}" loading="lazy"></a>
       <div class="cbody">
-        <div class="rname">${p.name}</div>
+        <a href="${p.url}" target="_blank" rel="noopener" class="rname">${p.name}</a>
         <div class="rev"><span class="stars">★</span> ${p.rating} (${p.rev})</div>
         <div class="price"><b>₹${p.price}</b><s>₹${p.mrp}</s></div>
         <div class="qtax" style="margin-bottom:2px">Inclusive of all taxes</div>
         <a href="#bundles" class="also-bundle">Also in a bundle &mdash; save more</a>
-        <button type="button" class="add${inCart?' in':''}" onclick="toggleCart('${p.id}','${p.name.replace(/'/g,"\\'")}',${p.price},this)">
+        <button type="button" class="add${inCart?' in':''}" onclick="toggleCart('${p.id}','${p.name.replace(/'/g,"\\'")}',${p.price},'${p.url}',this)">
           ${inCart?`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Added`:'Add to Cart'}
         </button>
+        <a href="${p.url}" target="_blank" rel="noopener" class="buy-single">Just want this one? Buy it directly &rarr;</a>
       </div>
     </div>`;
   }).join('');
 }
-function toggleCart(id,name,price,btnEl){
+function toggleCart(id,name,price,url,btnEl){
   const idx=cart.findIndex(c=>c.id===id);
   if(idx>-1){
     cart.splice(idx,1);
     btnEl.classList.remove('in');
     btnEl.innerHTML='Add to Cart';
   }else{
-    cart.push({id,name,price});
+    cart.push({id,name,price,url});
     btnEl.classList.add('in');
     btnEl.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Added';
   }
@@ -1003,17 +1007,24 @@ function updateCartUI(){
   document.querySelectorAll('.cart-count').forEach(el=>el.textContent=count);
   const mtxt=document.querySelector('.mbar .mtxt');
   const mco=document.querySelector('.mbar .mco');
-  if(count>0){
+  if(count===1){
+    const only = cart[0];
+    mtxt.innerHTML = `<b>1 item selected &middot; ₹${only.price}</b><span>Buying just this? Tap to check out this item</span>`;
+    mco.textContent='Buy This Item';
+    mco.href = only.url || 'https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/';
+  }else if(count>1){
     const total=cart.reduce((s,c)=>s+c.price,0);
     const away3 = 3-count, away5 = 5-count;
     let hint = 'Free shipping included';
     if(away3>0) hint = `Add ${away3} more for 3-pack pricing`;
     else if(away5>0) hint = `Add ${away5} more for 5-pack pricing`;
-    mtxt.innerHTML = `<b>${count} item${count>1?'s':''} added &middot; ₹${total}</b><span>${hint}</span>`;
+    mtxt.innerHTML = `<b>${count} items added &middot; ₹${total}</b><span>${hint}</span>`;
     mco.textContent='Continue to Bundle';
+    mco.href = 'https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/';
   }else{
     mtxt.innerHTML = `<b>Pick any 3, pay ₹499</b><span>Takes less than a minute</span>`;
     mco.textContent='Make Your Bundle';
+    mco.href = 'https://prayrit-troopod.github.io/Happi-planet-bundle-page-update/';
   }
   const nudgeTxt = document.getElementById('bsNudgeTxt');
   const nudgeFill = document.getElementById('bsNudgeFill');
